@@ -1,0 +1,20 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sign.controller.Master"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	
+			<Page id="firstPage" title="Title">
+				<subHeader>
+					<Toolbar id="searchBar">
+						<SearchField
+							id="searchField"
+							showRefreshButton="{device>/isNoTouch}"
+							placeholder="Search"
+							search="handleSearch"
+							tooltip="Search words"
+							width="100%">
+						</SearchField>
+					</Toolbar>
+				</subHeader>
+				<content></content>
+			</Page>
+	
+</mvc:View>
