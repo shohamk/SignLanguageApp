@@ -1,20 +1,93 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sign.controller.Master"
 	xmlns:html="http://www.w3.org/1999/xhtml">
 	
-			<Page id="firstPage" title="Title">
+			<Page id="firstPage" title="{i18n>title}">
 				<subHeader>
 					<Toolbar id="searchBar">
 						<SearchField
 							id="searchField"
 							showRefreshButton="{device>/isNoTouch}"
-							placeholder="Search"
+							placeholder="{i18n>SEARCH}"
 							search="handleSearch"
 							tooltip="Search words"
 							width="100%">
 						</SearchField>
 					</Toolbar>
 				</subHeader>
-				<content></content>
+				<footer>
+					<Toolbar>
+					</Toolbar>
+				</footer>
+				<content>
+			<!-- This list shows the search results -->
+			<!--List
+				id="wordsList"
+				mode="{device>/listMode}"
+				select="handleWordListSelect"
+				noDataText="{i18n>NO_DATA}"
+				items="{
+					path : '/Words',
+					sorter : {
+						path : 'Name',
+						descending : false
+					}
+				}">
+				<items>
+					<ObjectListItem
+						type="{device>/listItemType}"
+						icon="{PictureUrl}"
+						title="{Name}"
+						number="{
+							path : 'Price',
+							formatter : '.formatter.price'
+						}"
+						numberUnit="EUR"
+						press="handleProductListItemPress"
+						iconDensityAware="false" >
+						<attributes>
+							<ObjectAttribute text="{SupplierName}"/>
+						</attributes>
+						<firstStatus>
+							<ObjectStatus
+								text="{
+									path : 'status',
+									formatter : '.formatter.statusText'
+								}"
+								state="{
+									path : 'status',
+									formatter : '.formatter.statusState'
+								}" />
+						</firstStatus>
+					</ObjectListItem>
+				</items>
+			</List-->
+			<!-- This list shows the product categories -->
+			<List
+				id="categoryList"
+				headerText="{i18n>CATEGORIES}"
+				mode="None"
+				items="{
+					path : '/Categories',
+					sorter : {
+						path : 'CategoryName',
+						descending: false
+					}
+				}">
+				<items>
+					<StandardListItem
+						title="{CategoryName}"
+						type="Active"
+						counter="{NumberOfWords}"
+						press="handleCategoryListItemPress" >
+						<customData>
+							<core:CustomData
+								key="id"
+								value="{Category}" />
+						</customData>
+					</StandardListItem>
+				</items>
+			</List>
+		</content>
 			</Page>
 	
 </mvc:View>
