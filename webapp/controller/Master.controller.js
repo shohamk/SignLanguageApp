@@ -5,6 +5,39 @@ sap.ui.define([
 
 	return Controller.extend("sign.controller.Master", {
 
+		handleSearch : function(){
+		/*	var oView = this.getView();
+			var oProductList = oView.byId("productList");
+			var oCategoryList = oView.byId("categoryList");
+			var oSearchField = oView.byId("searchField");
+	
+			// switch visibility of lists
+			var bShowSearch = oSearchField.getValue().length !== 0;
+			oProductList.toggleStyleClass("invisible", !bShowSearch);
+			oCategoryList.toggleStyleClass("invisible", bShowSearch);
+			
+			if (bShowSearch) {
+				this._changeNoDataTextToIndicateLoading(oProductList);
+			}
+	
+			// filter product list
+			var oBinding = oProductList.getBinding("items");
+			if (oBinding) {
+				if (bShowSearch) {
+					var oFilter = new sap.ui.model.Filter("Name", sap.ui.model.FilterOperator.Contains, oSearchField.getValue());
+					oBinding.filter([oFilter]);
+				} else {
+					oBinding.filter([]);
+				}
+			}*/
+		},
+		
+		handleCategoryListItemPress : function (oEvent) {
+			var oBindContext = oEvent.getSource().getBindingContext();
+			var oModel = oBindContext.getModel();
+		//	var sCategoryId = oModel.getData(oBindContext.getPath()).Category;
+	//		this._router.navTo("category", {id: sCategoryId});
+		}
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.

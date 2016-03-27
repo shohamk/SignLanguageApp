@@ -1,9 +1,10 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
+	"sap/ui/model/json/JSONModel",
 	"sap/ui/Device",
 	"sap/m/routing/Router",
 	"sign/model/models"
-], function(UIComponent, Device, Router, models) {
+], function(UIComponent,JSONModel, Device, Router, models) {
 	"use strict";
 
 	return UIComponent.extend("sign.Component", {
@@ -37,10 +38,17 @@ sap.ui.define([
 		
 		createContent: function () {
 			// create root view
-			return sap.ui.view({
+			var view = sap.ui.view({
 				viewName: "sign.view.Main",
 				type: "XML"
 			});
+			
+			
+			var oModel = new JSONModel();
+			oModel.loadData("model/database.json");
+        	view.setModel(oModel);
+        	
+        	return view;
 		}
 	});
 

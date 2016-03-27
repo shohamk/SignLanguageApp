@@ -1,7 +1,7 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sign.controller.Master"
 	xmlns:html="http://www.w3.org/1999/xhtml">
 	
-			<Page id="firstPage" title="{i18n>title}">
+			<Page id="firstPage" title="{i18n>firstPageTitle}">
 				<subHeader>
 					<Toolbar id="searchBar">
 						<SearchField
@@ -26,17 +26,17 @@
 				select="handleWordListSelect"
 				noDataText="{i18n>NO_DATA}"
 				items="{
-					path : '/Words',
+					path : '/words',
 					sorter : {
-						path : 'Name',
+						path : 'name',
 						descending : false
 					}
 				}">
 				<items>
 					<ObjectListItem
 						type="{device>/listItemType}"
-						icon="{PictureUrl}"
-						title="{Name}"
+						icon="{image}"
+						title="{name}"
 						number="{
 							path : 'Price',
 							formatter : '.formatter.price'
@@ -45,7 +45,7 @@
 						press="handleProductListItemPress"
 						iconDensityAware="false" >
 						<attributes>
-							<ObjectAttribute text="{SupplierName}"/>
+							<ObjectAttribute text="SupplierName"/>
 						</attributes>
 						<firstStatus>
 							<ObjectStatus
@@ -67,16 +67,17 @@
 				headerText="{i18n>CATEGORIES}"
 				mode="None"
 				items="{
-					path : '/Categories',
+					path : '/categories',
 					sorter : {
-						path : 'CategoryName',
+						path : 'name',
 						descending: false
 					}
 				}">
 				<items>
 					<StandardListItem
-						title="{CategoryName}"
+						title="{name}"
 						type="Active"
+						icon="{image}"
 						counter="{NumberOfWords}"
 						press="handleCategoryListItemPress" >
 						<customData>
