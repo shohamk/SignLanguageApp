@@ -1,0 +1,46 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sign.controller.Category"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:control="control"
+	xmlns:h="http://www.w3.org/1999/xhtml">
+	<Page
+		id="page"
+		title="{name}"
+		showNavButton="true"
+		navButtonPress="handleNavButtonPress"
+		showFooter="{device>/isNoPhone}" >
+		<headerContent>
+		</headerContent>
+		<footer>
+			<Toolbar>
+			</Toolbar>
+		</footer>
+		<content>
+			<List
+				id="wordsList"
+				mode="{device>/listMode}"
+				select="handleWordListSelect"
+				noDataText="{i18n>NO_DATA}"
+				busyIndicatorDelay="0"
+				items="{
+					path : '/words',
+					sorter : {
+						path : 'name',
+						descending : false
+					}
+				}">
+				<items>
+					<ObjectListItem
+						type="{device>/listItemType}"
+					
+						title="{name}"
+						press="handleWordPress"
+						iconDensityAware="false" >
+					</ObjectListItem>
+				</items>
+			</List>
+		</content>
+	</Page>
+</mvc:View>

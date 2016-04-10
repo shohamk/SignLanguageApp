@@ -79,6 +79,11 @@
 						"pattern": "",
 						"name": "masterRoute",
 						"target": "MasterView"
+					},
+						{
+						"pattern": "category/{id}",
+						"name": "categories",
+						"target": "CategoryView"
 					}
 				],
 			"targets": {
@@ -89,6 +94,14 @@
 					"clearAggregation": "true",
 					"viewName": "Master",
 					"controlAggregation": "masterPages"
+				},
+				"CategoryView": {
+					"viewType": "XML",
+					"viewLevel": 2,
+					"transition": "slide",
+					"clearAggregation": "true",
+					"viewName": "Category",
+					"controlAggregation": "detailPages"
 				}
 			}
 		}

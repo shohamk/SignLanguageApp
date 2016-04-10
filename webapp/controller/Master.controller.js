@@ -5,6 +5,11 @@ sap.ui.define([
 
 	return Controller.extend("sign.controller.Master", {
 
+		onInit : function () {
+				this._router = sap.ui.core.UIComponent.getRouterFor(this);
+				// trigger first search to set visibilities right
+			//	this._search();
+		},
 		handleSearch : function(){
 		/*	var oView = this.getView();
 			var oProductList = oView.byId("productList");
@@ -35,8 +40,8 @@ sap.ui.define([
 		handleCategoryListItemPress : function (oEvent) {
 			var oBindContext = oEvent.getSource().getBindingContext();
 			var oModel = oBindContext.getModel();
-		//	var sCategoryId = oModel.getData(oBindContext.getPath()).Category;
-	//		this._router.navTo("category", {id: sCategoryId});
+			var sCategoryId = oModel.getProperty(oBindContext.getPath()).id;
+			this._router.navTo("categories", {id: sCategoryId});
 		}
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
