@@ -1,6 +1,7 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function(Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/core/routing/History"
+], function(Controller, History) {
 	"use strict";
 
 	return Controller.extend("sign.controller.Category", {
@@ -43,8 +44,19 @@ sap.ui.define([
 					return true;
 				}
 			});
-		}
+		},
 
+        handleNavButtonPress : function (oEvent) {
+		    var oHistory, sPreviousHash;
+			oHistory = History.getInstance();
+			sPreviousHash = oHistory.getPreviousHash();
+			if (sPreviousHash !== undefined) {
+				window.history.go(-1);
+			} else {
+				this.getRouter().navTo("masterRoute", {}, true /*no history*/);
+			}
+    	}
+	
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 		 * (NOT before the first rendering! onInit() is used for that one!).

@@ -20,7 +20,7 @@
 				</footer>
 				<content>
 			<!-- This list shows the search results -->
-			<!--List
+			<List
 				id="wordsList"
 				mode="{device>/listMode}"
 				select="handleWordListSelect"
@@ -37,30 +37,11 @@
 						type="{device>/listItemType}"
 						icon="{image}"
 						title="{name}"
-						number="{
-							path : 'Price',
-							formatter : '.formatter.price'
-						}"
-						numberUnit="EUR"
 						press="handleProductListItemPress"
 						iconDensityAware="false" >
-						<attributes>
-							<ObjectAttribute text="SupplierName"/>
-						</attributes>
-						<firstStatus>
-							<ObjectStatus
-								text="{
-									path : 'status',
-									formatter : '.formatter.statusText'
-								}"
-								state="{
-									path : 'status',
-									formatter : '.formatter.statusState'
-								}" />
-						</firstStatus>
 					</ObjectListItem>
 				</items>
-			</List-->
+			</List>
 			<!-- This list shows the product categories -->
 			<List
 				id="categoryList"

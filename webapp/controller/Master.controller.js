@@ -8,35 +8,48 @@ sap.ui.define([
 		onInit : function () {
 				this._router = sap.ui.core.UIComponent.getRouterFor(this);
 				// trigger first search to set visibilities right
-			//	this._search();
-		},
-		handleSearch : function(){
-		/*	var oView = this.getView();
-			var oProductList = oView.byId("productList");
-			var oCategoryList = oView.byId("categoryList");
-			var oSearchField = oView.byId("searchField");
-	
-			// switch visibility of lists
-			var bShowSearch = oSearchField.getValue().length !== 0;
-			oProductList.toggleStyleClass("invisible", !bShowSearch);
-			oCategoryList.toggleStyleClass("invisible", bShowSearch);
-			
-			if (bShowSearch) {
-				this._changeNoDataTextToIndicateLoading(oProductList);
-			}
-	
-			// filter product list
-			var oBinding = oProductList.getBinding("items");
-			if (oBinding) {
-				if (bShowSearch) {
-					var oFilter = new sap.ui.model.Filter("Name", sap.ui.model.FilterOperator.Contains, oSearchField.getValue());
-					oBinding.filter([oFilter]);
-				} else {
-					oBinding.filter([]);
-				}
-			}*/
+				this._search();
 		},
 		
+		handleSearch : function (oEvent) {
+    		this._search();
+    	},
+
+
+    	_search : function () {
+    		var oView = this.getView();
+    		var oProductList = oView.byId("wordsList");
+    		var oCategoryList = oView.byId("categoryList");
+    		var oSearchField = oView.byId("searchField");
+    
+    		// switch visibility of lists
+    		var bShowSearch = oSearchField.getValue().length !== 0;
+    		
+    		oProductList.setVisible(bShowSearch);
+    		oCategoryList.setVisible(!bShowSearch);
+    		
+    		if (bShowSearch) {
+    			this._changeNoDataTextToIndicateLoading(oProductList);
+    		}
+    
+    		// filter product list
+    		var oBinding = oProductList.getBinding("items");
+    		if (oBinding) {
+    			if (bShowSearch) {
+    				var oFilter = new sap.ui.model.Filter("name", sap.ui.model.FilterOperator.Contains, oSearchField.getValue());
+    				oBinding.filter([oFilter]);
+    			} else {
+    				oBinding.filter([]);
+    			}
+    		}
+    	},
+		
+		_changeNoDataTextToIndicateLoading: function (oList) {
+    		var sOldNoDataText = oList.getNoDataText();
+    		oList.setNoDataText("Loading...");
+    		oList.attachEventOnce("updateFinished", function() {oList.setNoDataText(sOldNoDataText);});
+    	},
+	
 		handleCategoryListItemPress : function (oEvent) {
 			var oBindContext = oEvent.getSource().getBindingContext();
 			var oModel = oBindContext.getModel();
