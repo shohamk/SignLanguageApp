@@ -1,13 +1,11 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function(Controller) {
+	"sign/controller/BaseController"
+], function(BaseController) {
 	"use strict";
 
-	return Controller.extend("sign.controller.Master", {
+	return BaseController.extend("sign.controller.Master", {
 
 		onInit : function () {
-				this._router = sap.ui.core.UIComponent.getRouterFor(this);
-				// trigger first search to set visibilities right
 				this._search();
 		},
 		
@@ -53,8 +51,9 @@ sap.ui.define([
 		handleCategoryListItemPress : function (oEvent) {
 			var oBindContext = oEvent.getSource().getBindingContext();
 			var oModel = oBindContext.getModel();
+			debugger;
 			var sCategoryId = oModel.getProperty(oBindContext.getPath()).id;
-			this._router.navTo("categories", {id: sCategoryId});
+			this.getRouter().navTo("category", {categoryId: sCategoryId},true);
 		}
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.

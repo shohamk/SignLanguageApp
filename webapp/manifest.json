@@ -1,7 +1,7 @@
 {
-	"_version": "1.1.0",
+	"_version": "1.3.0",
 	"sap.app": {
-		"_version": "1.1.0",
+		"_version": "1.3.0",
 		"id": "sign",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
@@ -11,14 +11,13 @@
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
 		"resources": "resources.json",
-		"ach": "ach",
 		"sourceTemplate": {
 			"id": "ui5template.basicSAPUI5ApplicationProject",
-			"version": "1.32.0"
+			"version": "1.34.5"
 		}
 	},
 	"sap.ui": {
-		"_version": "1.1.0",
+		"_version": "1.3.0",
 		"technology": "UI5",
 		"icons": {
 			"icon": "",
@@ -36,17 +35,20 @@
 		"supportedThemes": ["sap_hcb", "sap_bluecrystal"]
 	},
 	"sap.ui5": {
-		"_version": "1.1.0",
+		"_version": "1.2.0",
 		"rootView": {
 			"viewName": "sign.view.Main",
 			"type": "XML"
 		},
 		"dependencies": {
-			"minUI5Version": "1.30.0",
+			"minUI5Version": "1.34.0",
 			"libs": {
-				"sap.ui.core": {},
-				"sap.m": {},
-				"sap.ui.layout": {}
+				"sap.ui.core": {
+					"minVersion": "1.34.0"
+				},
+				"sap.m": {
+					"minVersion": "1.34.0"
+				}
 			}
 		},
 		"contentDensities": {
@@ -68,40 +70,41 @@
 		},
 		"routing": {
 			"config": {
-				"viewPath": "view",
-				"controlId": "splitApp",
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "sign.view",
+				"controlId": "idAppControl",
+				"controlAggregation": "detailPages",				
 				"bypassed": {
-					"target": ["MasterView"]
+					"target": ["master"]
 				}
 			},
-			"routes": [
-					{
-						"pattern": "",
-						"name": "masterRoute",
-						"target": "MasterView"
-					},
-						{
-						"pattern": "category/{id}",
-						"name": "categories",
-						"target": "CategoryView"
-					}
-				],
+			"routes": [{
+				"pattern": "",
+				"name": "master",
+				"target": ["category", "master"],
+				"greedy": false
+			}, {
+				"pattern": "categories/{categoryId}",
+				"name": "category",
+				"target": ["master", "category"]
+			}],
 			"targets": {
-				"MasterView": {
+				"master": {
 					"viewType": "XML",
 					"viewLevel": 1,
-					"transition": "slide",
-					"clearAggregation": "true",
 					"viewName": "Master",
-					"controlAggregation": "masterPages"
+					"controlAggregation": "masterPages",
+					"viewId": "master",
+					"viewPath": "sign.view"
 				},
-				"CategoryView": {
+				"category": {
 					"viewType": "XML",
 					"viewLevel": 2,
-					"transition": "slide",
-					"clearAggregation": "true",
 					"viewName": "Category",
-					"controlAggregation": "detailPages"
+					"controlAggregation": "masterPages",
+					"viewId": "category",
+					"viewPath": "sign.view"
 				}
 			}
 		}

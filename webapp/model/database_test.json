@@ -1,0 +1,32 @@
+{
+  "categories": [
+    { "id": 1, "name": "מאכלים", "image": "img/food.png" },
+    { "id": 2, "name": "פעלים", "image": "img/verbs.png" },
+    { "id": 3, "name": "בעלי מקצוע", "image": "img/occupations.png" }
+  ],
+  "words": [
+    { "id": 1, "name": "אורז", "categoryId": 1, "image": "img/rice2.png","video": "Winner.mp4" },
+    { "id": 2, "name": "ביצה מקושקשת", "categoryId": 1, "image": "img/eggs_scrambled_2.png","video": "Winner.mp4" },
+    { "id": 3, "name": "בשר", "categoryId": 1, "image": "img/meat.png","video": "Winner.mp4" },
+  
+
+
+    { "id": 1, "name": "להתקלח", "categoryId": 2, "image": "img/bath_bubble.png","video": "Winner.mp4" },
+    { "id": 2, "name": "להחליף חיתול", "categoryId": 2, "image": "img/change_diaper.png","video": "Winner.mp4" },
+    { "id": 3, "name": "להתלבש", "categoryId": 2, "image": "img/get_dressed.png","video": "Winner.mp4" },
+    { "id": 4, "name": "להתעורר", "categoryId": 2, "image": "img/wake_up.png","video": "Winner.mp4" },
+    { "id": 5, "name": "לישון", "categoryId": 2, "image": "img/sleep.png","video": "Winner.mp4" },
+    
+
+
+    { "id": 1, "name": "אחות", "categoryId": 3, "image": "img/nurse_girl.png","video": "Winner.mp4" },
+    { "id": 2, "name": "בנאי", "categoryId": 3, "image": "img/construction_worker.png","video": "Golbary.mp4" },
+    { "id": 3, "name": "גננת", "categoryId": 3, "image": "img/daycare.png","video": "Tornado.mp4" },
+    { "id": 4, "name": "חייל", "categoryId": 3, "image": "img/soldier_1.png","video": "Winner.mp4" },
+    { "id": 5, "name": "מורה", "categoryId": 3, "image": "img/teacher_2.png","video": "Tornado.mp4" },
+    { "id": 6, "name": "מטפלת", "categoryId": 3, "image": "img/metapelet.png","video": "Winner.mp4" },
+    { "id": 7, "name": "מנהלת", "categoryId": 3, "image": "img/manager.png","video": "Golbary.mp4" },
+    { "id": 8, "name": "מרפאה בעיסוק", "categoryId": 3, "image": "img/occupational_therapist.png","video": "Tornado.mp4" }
+
+  ]
+}

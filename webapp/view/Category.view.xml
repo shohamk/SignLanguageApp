@@ -29,7 +29,7 @@
 				<items>
 					<ObjectListItem
 						type="{device>/listItemType}"
-					
+						icon="{image}"
 						title="{name}"
 						press="handleWordPress"
 						iconDensityAware="false" >
