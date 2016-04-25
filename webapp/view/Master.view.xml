@@ -45,7 +45,6 @@
 			<!-- This list shows the product categories -->
 			<List
 				id="categoryList"
-				headerText="{i18n>CATEGORIES}"
 				mode="None"
 				items="{
 					path : '/categories',
