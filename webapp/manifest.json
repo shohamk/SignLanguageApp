@@ -79,6 +79,7 @@
 					"target": ["master"]
 				}
 			},
+
 			"routes": [{
 				"pattern": "",
 				"name": "master",
@@ -88,7 +89,14 @@
 				"pattern": "categories/{categoryId}",
 				"name": "category",
 				"target": ["master", "category"]
-			}],
+			},
+				{
+				"pattern": "category/{categoryId}/word/{wordId}",
+				"name": "word",
+				"target": ["word"]
+				}
+			],
+
 			"targets": {
 				"master": {
 					"viewType": "XML",
@@ -104,6 +112,14 @@
 					"viewName": "Category",
 					"controlAggregation": "masterPages",
 					"viewId": "category",
+					"viewPath": "sign.view"
+				},
+				"word": {
+					"viewType": "XML",
+					"viewLevel": 3,
+					"viewName": "Word",
+					"controlAggregation": "detailPages",
+					"viewId": "word",
 					"viewPath": "sign.view"
 				}
 			}

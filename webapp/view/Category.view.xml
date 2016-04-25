@@ -28,10 +28,10 @@
 				}">
 				<items>
 					<ObjectListItem
-						type="{device>/listItemType}"
+						type="Active"
 						icon="{image}"
 						title="{name}"
-						press="handleWordPress"
+						press="handleWordListSelect"
 						iconDensityAware="false" >
 					</ObjectListItem>
 				</items>
