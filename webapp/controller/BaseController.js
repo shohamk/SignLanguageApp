@@ -62,7 +62,41 @@ sap.ui.define([
 					var bReplace = true;
 					this.getRouter().navTo("master", {}, bReplace);
 				}
-			}
+			},
+			
+			_search : function (mainList, searchList) {
+        		var oView = this.getView();
+        		var oProductList = oView.byId(searchList);
+        		var oCategoryList = oView.byId(mainList);
+        		var oSearchField = oView.byId("searchField");
+        
+        		// switch visibility of lists
+        		var bShowSearch = oSearchField.getValue().length !== 0;
+        		
+        		oProductList.setVisible(bShowSearch);
+        		oCategoryList.setVisible(!bShowSearch);
+        		
+        		if (bShowSearch) {
+        			this._changeNoDataTextToIndicateLoading(oProductList);
+        		}
+        
+        		// filter product list
+        		var oBinding = oProductList.getBinding("items");
+        		if (oBinding) {
+        			if (bShowSearch) {
+        				var oFilter = new sap.ui.model.Filter("name", sap.ui.model.FilterOperator.Contains, oSearchField.getValue());
+        				oBinding.filter([oFilter]);
+        			} else {
+        				oBinding.filter([]);
+        			}
+        		}
+    	},
+		
+		_changeNoDataTextToIndicateLoading: function (oList) {
+    		var sOldNoDataText = oList.getNoDataText();
+    		oList.setNoDataText("Loading...");
+    		oList.attachEventOnce("updateFinished", function() {oList.setNoDataText(sOldNoDataText);});
+    	}
 
 		});
 

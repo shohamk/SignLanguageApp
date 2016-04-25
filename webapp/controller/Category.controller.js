@@ -12,8 +12,13 @@ sap.ui.define([
 		 */
 		onInit: function() {
 			this.getRouter().getRoute("category").attachPatternMatched(this._loadCategory, this);
+				this._search("wordsList", "searchedWordsList");
 		},
 
+        handleSearch: function(){
+            	this._search("wordsList", "searchedWordsList");
+        },
+        
 		_loadCategory: function(oEvent) {
 			var oWordList = this.getView().byId("wordsList");
 			this._changeNoDataTextToIndicateLoading(oWordList);

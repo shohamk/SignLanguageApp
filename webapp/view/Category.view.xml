@@ -6,6 +6,18 @@
 		showNavButton="true"
 		navButtonPress="handleNavButtonPress"
 		showFooter="{device>/isNoPhone}" >
+	    <subHeader>
+			<Toolbar id="searchBar">
+				<SearchField
+					id="searchField"
+					showRefreshButton="{device>/isNoTouch}"
+					placeholder="{i18n>SEARCH}"
+					search="handleSearch"
+					tooltip="Search words"
+					width="100%">
+				</SearchField>
+			</Toolbar>
+		</subHeader>
 		<headerContent>
 		</headerContent>
 		<footer>
@@ -13,6 +25,30 @@
 			</Toolbar>
 		</footer>
 		<content>
+		    	<!-- This list shows the search results -->
+			<List
+				id="searchedWordsList"
+				mode="{device>/listMode}"
+				select="handleWordListSelect"
+				noDataText="{i18n>NO_DATA}"
+				items="{
+					path : '/words',
+					sorter : {
+						path : 'name',
+						descending : false
+					}
+				}">
+				<items>
+					<ObjectListItem
+						type="{device>/listItemType}"
+						icon="{image}"
+						title="{name}"
+						press="handleProductListItemPress"
+						iconDensityAware="false" >
+					</ObjectListItem>
+				</items>
+			</List>
+			<!-- words -->
 			<List
 				id="wordsList"
 				mode="{device>/listMode}"

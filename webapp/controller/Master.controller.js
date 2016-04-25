@@ -6,52 +6,16 @@ sap.ui.define([
 	return BaseController.extend("sign.controller.Master", {
 
 		onInit : function () {
-				this._search();
+				this._search("categoryList", "wordsList");
 		},
 		
 		handleSearch : function (oEvent) {
-    		this._search();
+    		this._search("categoryList", "wordsList");
     	},
 
-
-    	_search : function () {
-    		var oView = this.getView();
-    		var oProductList = oView.byId("wordsList");
-    		var oCategoryList = oView.byId("categoryList");
-    		var oSearchField = oView.byId("searchField");
-    
-    		// switch visibility of lists
-    		var bShowSearch = oSearchField.getValue().length !== 0;
-    		
-    		oProductList.setVisible(bShowSearch);
-    		oCategoryList.setVisible(!bShowSearch);
-    		
-    		if (bShowSearch) {
-    			this._changeNoDataTextToIndicateLoading(oProductList);
-    		}
-    
-    		// filter product list
-    		var oBinding = oProductList.getBinding("items");
-    		if (oBinding) {
-    			if (bShowSearch) {
-    				var oFilter = new sap.ui.model.Filter("name", sap.ui.model.FilterOperator.Contains, oSearchField.getValue());
-    				oBinding.filter([oFilter]);
-    			} else {
-    				oBinding.filter([]);
-    			}
-    		}
-    	},
-		
-		_changeNoDataTextToIndicateLoading: function (oList) {
-    		var sOldNoDataText = oList.getNoDataText();
-    		oList.setNoDataText("Loading...");
-    		oList.attachEventOnce("updateFinished", function() {oList.setNoDataText(sOldNoDataText);});
-    	},
-	
 		handleCategoryListItemPress : function (oEvent) {
 			var oBindContext = oEvent.getSource().getBindingContext();
 			var oModel = oBindContext.getModel();
-			debugger;
 			var sCategoryId = oModel.getProperty(oBindContext.getPath()).id;
 			this.getRouter().navTo("category", {categoryId: sCategoryId},true);
 		}
