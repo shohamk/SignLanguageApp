@@ -11,7 +11,7 @@ sap.ui.define([
 		
 		_routePatternMatched: function(oEvent) {
     		var sId = oEvent.getParameter("arguments").wordId ,
-    			oView = this.getView(),
+    			oView = this.getView().byId("wordPage"),
     			sPath = "/words('" + sId + "')";
     
     		/**
@@ -24,6 +24,9 @@ sap.ui.define([
     		var oModel = oView.getModel();
     		var oData = oModel.getData(sPath);
     		oView.bindElement(sPath);
+   // 		oView.setTitle(oData.words[sId].name);
+    	//	var iconView = this.getView().byId("headerImage");
+    	//	iconView.setSrc(oData.words[sId].image);
     		//if there is no data the model has to request new data
     		if (!oData) {
     			oView.getElementBinding().attachEventOnce("dataReceived", function() {

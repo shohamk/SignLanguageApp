@@ -23,10 +23,13 @@ sap.ui.define([
 			var oWordList = this.getView().byId("wordsList");
 			this._changeNoDataTextToIndicateLoading(oWordList);
 			var oBinding = oWordList.getBinding("items");
-			oBinding.attachDataReceived(this.fnDataReceived, this);
+	//		oBinding.attachDataReceived(this.fnDataReceived, this);
 			var sId = oEvent.getParameter("arguments").categoryId;
-			//	this._sWordId = oEvent.getParameter("arguments").id;
-			this.getView().byId("page").setTitle(sId);
+		
+			var num = parseInt(sId, 10) - 1 ;
+			var categoryContext =  oWordList.getModel().getContext('/categories/' +  num.toString()  + "/name");
+			var categoryName = categoryContext.getObject();
+			this.getView().byId("page").setTitle(categoryName);
 			var oFilter = new sap.ui.model.Filter("categoryId", sap.ui.model.FilterOperator.EQ, sId);
 			oBinding.filter([oFilter]);
 		},
@@ -58,7 +61,7 @@ sap.ui.define([
 			if (sPreviousHash !== undefined) {
 				window.history.go(-1);
 			} else {
-				this.getRouter().navTo("masterRoute", {}, true /*no history*/ );
+				this.getRouter().navTo("master", {}, true /*no history*/ );
 			}
 		},
 
