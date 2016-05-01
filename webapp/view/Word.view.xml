@@ -4,6 +4,10 @@
 		    <headerContent>
 		        <Button text="testing"/>
 		    </headerContent>
-			<content></content>
+			<content>
+			    <html:video id='video' src='video/Winner.mp4' width='80%' height='80%' controls='true'>
+			        
+			     </html:video>
+			</content>
 		</Page>
 </mvc:View>
