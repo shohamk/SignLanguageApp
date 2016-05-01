@@ -12,7 +12,7 @@ sap.ui.define([
 		 */
 		onInit: function() {
 			this.getRouter().getRoute("category").attachPatternMatched(this._loadCategory, this);
-				this._search("wordsList", "searchedWordsList");
+			this._search("wordsList", "searchedWordsList");
 		},
 
         handleSearch: function(){
@@ -26,8 +26,8 @@ sap.ui.define([
 	//		oBinding.attachDataReceived(this.fnDataReceived, this);
 			var sId = oEvent.getParameter("arguments").categoryId;
 		
-			var num = parseInt(sId, 10) - 1 ;
-			var categoryContext =  oWordList.getModel().getContext('/categories/' +  num.toString()  + "/name");
+			//var num = parseInt(sId, 10) - 1 ;
+			var categoryContext =  oWordList.getModel().getContext('/categories/' +  sId  + "/name");
 			var categoryName = categoryContext.getObject();
 			this.getView().byId("page").setTitle(categoryName);
 			var oFilter = new sap.ui.model.Filter("categoryId", sap.ui.model.FilterOperator.EQ, sId);
