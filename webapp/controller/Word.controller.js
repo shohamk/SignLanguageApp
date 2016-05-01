@@ -24,32 +24,39 @@ sap.ui.define([
     		var oModel = oView.getModel();
     		var oData = oModel.getData(sPath);
     		oView.bindElement(sPath);
+    		
     		oView.setTitle(oData.words[sId].name);
     		var iconView = this.getView().byId("headerImage");
-    		iconView.setSrc(oData.words[sId].image);
+    	//	iconView.setSrc(oData.words[sId].image);
+    		
     		//if there is no data the model has to request new data
     		if (!oData) {
     			oView.getElementBinding().attachEventOnce("dataReceived", function() {
     				that._checkIfProductAvailable(sPath, sId);
     			});
     		}
+    		var html1 = new sap.ui.core.HTML("html1", {
+                content:
+                        "<video width='100%' height='100%' autoplay showControls>" +
+                        "<source src='http://www.w3schools.com/html/movie.mp4' type='video/mp4'>" +
+                        "Your browser does not support the video tag." +
+                        "</video>"
+            });
+            
+            oView.addContent(html1);
 	    },
 	    
-	    fnUpdateProduct: function(sChannel, sEvent, oData) {
-    		var sPath = "/Words('" + oData.wordId + "')";
-    		this.getView().bindElement(sPath);
-    		this._checkIfProductAvailable(sPath, oData.wordId);
-    	},
+	   
 
-    	_checkIfProductAvailable: function(sPath, sId) {
-    		var oModel = this.getView().getModel();
-    		var oData = oModel.getData(sPath);
+    // 	_checkIfProductAvailable: function(sPath, sId) {
+    // 		var oModel = this.getView().getModel();
+    // 		var oData = oModel.getData(sPath);
     
-    		// show not found page
-    		if (!oData) {
-    			this._router.getTargets().display("notFound", sId);
-    		}
-    	}
+    // 		// show not found page
+    // 		if (!oData) {
+    // 			this._router.getTargets().display("notFound", sId);
+    // 		}
+    // 	},
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
@@ -65,9 +72,13 @@ sap.ui.define([
 		 * This hook is the same one that SAPUI5 controls get after being rendered.
 		 * @memberOf sign.view.Word
 		 */
-		//	onAfterRendering: function() {
-		//
-		//	},
+			onAfterRendering: function() {
+			   //var videoElement = this.getView().byId("video");
+			   var video = $("#video");
+			   video.attr("src", "video/Winner.mp4");
+			   //var video =  jQuery.sap.byId("video", videoElement);
+		    	//video.setAttribute("src", "http://www.w3schools.com/html/movie.mp4");
+			}
 
 		/**
 		 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
