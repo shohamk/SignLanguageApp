@@ -38,7 +38,7 @@ sap.ui.define([
     		var html1 = new sap.ui.core.HTML("html1", {
                 content:
                         "<video width='100%' height='100%' autoplay showControls>" +
-                        "<source src='http://www.w3schools.com/html/movie.mp4' type='video/mp4'>" +
+                        "<source src='" + oData.words[sId].video + "' type='video/mp4'>" +
                         "Your browser does not support the video tag." +
                         "</video>"
             });
