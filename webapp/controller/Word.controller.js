@@ -7,6 +7,17 @@ sap.ui.define([
 
 		onInit: function() {
     		this.getRouter().getRoute("word").attachPatternMatched(this._routePatternMatched, this);
+    		
+    		var oView = this.getView().byId("wordPage");
+    		var html1 = new sap.ui.core.HTML("html1", {
+                content:
+                        "<video width='100%' height='100%' autoplay showControls>" +
+                        "<source src='c.mp4' type='video/mp4'>" +
+                        "Your browser does not support the video tag." +
+                        "</video>"
+            });
+            
+            oView.addContent(html1);
 		},
 		
 		_routePatternMatched: function(oEvent) {
@@ -24,6 +35,8 @@ sap.ui.define([
     		var oModel = oView.getModel();
     		var oData = oModel.getData(sPath);
     		oView.bindElement(sPath);
+    		var video = $("#html1");
+			video.attr("src", oData.words[sId].video);
     		
     		oView.setTitle(oData.words[sId].name);
     		var iconView = this.getView().byId("headerImage");
@@ -35,15 +48,8 @@ sap.ui.define([
     				that._checkIfProductAvailable(sPath, sId);
     			});
     		}
-    		var html1 = new sap.ui.core.HTML("html1", {
-                content:
-                        "<video width='100%' height='100%' autoplay showControls>" +
-                        "<source src='" + oData.words[sId].video + "' type='video/mp4'>" +
-                        "Your browser does not support the video tag." +
-                        "</video>"
-            });
-            
-            oView.addContent(html1);
+    	
+    	
 	    },
 	    
 	   
@@ -74,8 +80,8 @@ sap.ui.define([
 		 */
 			onAfterRendering: function() {
 			   //var videoElement = this.getView().byId("video");
-			   var video = $("#video");
-			   video.attr("src", "video/Winner.mp4");
+			   //var video = $("#video");
+			   //video.attr("src", "video/Winner.mp4");
 			   //var video =  jQuery.sap.byId("video", videoElement);
 		    	//video.setAttribute("src", "http://www.w3schools.com/html/movie.mp4");
 			}
