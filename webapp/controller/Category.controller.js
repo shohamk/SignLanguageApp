@@ -55,14 +55,14 @@ sap.ui.define([
 		},
 
 		handleNavButtonPress: function(oEvent) {
-			var oHistory, sPreviousHash;
-			oHistory = History.getInstance();
-			sPreviousHash = oHistory.getPreviousHash();
-			if (sPreviousHash !== undefined) {
-				window.history.go(-1);
-			} else {
+// 			var oHistory, sPreviousHash;
+// 			oHistory = History.getInstance();
+// 			sPreviousHash = oHistory.getPreviousHash();
+// 			if (sPreviousHash !== undefined) {
+// 				window.history.go(-1);
+// 			} else {
 				this.getRouter().navTo("master", {}, true /*no history*/ );
-			}
+			//}
 		},
 
         handleWordListSelect : function(oEvent){

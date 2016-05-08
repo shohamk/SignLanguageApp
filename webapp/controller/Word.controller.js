@@ -1,6 +1,7 @@
 sap.ui.define([
-	"sign/controller/BaseController"
-], function(BaseController) {
+	"sign/controller/BaseController",
+	"sap/ui/core/routing/History"
+], function(BaseController, History) {
 	"use strict";
 
 	return BaseController.extend("sign.controller.Word", {
@@ -11,7 +12,7 @@ sap.ui.define([
     		var oView = this.getView().byId("wordPage");
     		var html1 = new sap.ui.core.HTML("html1", {
                 content:
-                        "<video width='100%' height='100%' autoplay showControls>" +
+                        "<video width='100%' height='100%' autoplay controls>" +
                         "<source src='c.mp4' type='video/mp4'>" +
                         "Your browser does not support the video tag." +
                         "</video>"
@@ -40,7 +41,9 @@ sap.ui.define([
     		
     		oView.setTitle(oData.words[sId].name);
     		var iconView = this.getView().byId("headerImage");
-    	//	iconView.setSrc(oData.words[sId].image);
+    		iconView.setSrc( oData.words[sId].image);
+    	//	var iconView = $("#headerImage");
+    	//    iconView.attr("src", oData.words[sId].image);
     		
     		//if there is no data the model has to request new data
     		if (!oData) {
@@ -52,17 +55,16 @@ sap.ui.define([
     	
 	    },
 	    
-	   
-
-    // 	_checkIfProductAvailable: function(sPath, sId) {
-    // 		var oModel = this.getView().getModel();
-    // 		var oData = oModel.getData(sPath);
-    
-    // 		// show not found page
-    // 		if (!oData) {
-    // 			this._router.getTargets().display("notFound", sId);
-    // 		}
-    // 	},
+	    	handleNavButtonPress: function(oEvent) {
+			var oHistory, sPreviousHash;
+			oHistory = History.getInstance();
+			sPreviousHash = oHistory.getPreviousHash();
+			if (sPreviousHash !== undefined) {
+				window.history.go(-1);
+			} else {
+				this.getRouter().navTo("master", {}, true /*no history*/ );
+			}
+		}
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
@@ -78,13 +80,9 @@ sap.ui.define([
 		 * This hook is the same one that SAPUI5 controls get after being rendered.
 		 * @memberOf sign.view.Word
 		 */
-			onAfterRendering: function() {
-			   //var videoElement = this.getView().byId("video");
-			   //var video = $("#video");
-			   //video.attr("src", "video/Winner.mp4");
-			   //var video =  jQuery.sap.byId("video", videoElement);
-		    	//video.setAttribute("src", "http://www.w3schools.com/html/movie.mp4");
-			}
+		 //onAfterRendering: function() {
+		 // 
+		 //}
 
 		/**
 		 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
