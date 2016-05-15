@@ -1,15 +1,20 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sign.controller.Word"
 	xmlns:html="http://www.w3.org/1999/xhtml">
-		<Page id="wordPage" 	
-		    showNavButton="true"
-		    navButtonPress="handleNavButtonPress">
-		    <headerContent>
-		        <Image id="headerImage"/>
-		    </headerContent>
-		    <footer>
-			    <Toolbar></Toolbar>
-		    </footer>
-			<content>
-			</content>
-		</Page>
+	<Page id="wordPage" showNavButton="true" navButtonPress="handleNavButtonPress">
+		  	<customHeader>
+    			<Bar>
+    			    <contentLeft>
+    			        <Button press="handleNavButtonPress"></Button>
+    			     </contentLeft>
+    				<contentMiddle>
+    					<Image id="headerImage" height="40px" ></Image>
+    					<Label id="headerTitle" />
+    				</contentMiddle>
+    			</Bar>
+		</customHeader>
+		<footer>
+			<Toolbar></Toolbar>
+		</footer>
+		<content></content>
+	</Page>
 </mvc:View>

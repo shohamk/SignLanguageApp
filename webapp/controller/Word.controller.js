@@ -39,9 +39,14 @@ sap.ui.define([
     		var video = $("#html1");
 			video.attr("src", oData.words[sId].video);
     		
-    		oView.setTitle(oData.words[sId].name);
+    	//	oView.setTitle(oData.words[sId].name);
+    	//	oView.setIcon( oData.words[sId].image);
     		var iconView = this.getView().byId("headerImage");
-    		iconView.setSrc( oData.words[sId].image);
+        	iconView.setSrc(oData.words[sId].image);
+        	
+        	var titleView = this.getView().byId("headerTitle");
+        	titleView.setText(oData.words[sId].name);
+        	
     	//	var iconView = $("#headerImage");
     	//    iconView.attr("src", oData.words[sId].image);
     		
