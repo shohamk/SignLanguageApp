@@ -1,17 +1,20 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sign.controller.Word"
 	xmlns:html="http://www.w3.org/1999/xhtml">
-	<Page id="wordPage" showNavButton="true" navButtonPress="handleNavButtonPress">
-		  	<customHeader>
+	<Page id="wordPage" showNavButton="{device>/isPhone}" navButtonPress="handleNavButtonPress">
+		<headerContent>
+			
+		</headerContent>
+		  	<!--customHeader>
     			<Bar>
     			    <contentLeft>
-    			        <Button press="handleNavButtonPress"></Button>
+    			        <Button id="wordNavBackBtn" press="handleNavButtonPress" visible="{device>/isPhone}"></Button>
     			     </contentLeft>
     				<contentMiddle>
     					<Image id="headerImage" height="40px" ></Image>
     					<Label id="headerTitle" />
     				</contentMiddle>
     			</Bar>
-		</customHeader>
+		</customHeader-->
 		<footer>
 			<Toolbar></Toolbar>
 		</footer>

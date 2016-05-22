@@ -19,6 +19,12 @@ sap.ui.define([
             });
             
             oView.addContent(html1);
+            
+          //  	if (!sap.ui.Device.system.phone) {
+          //  	     var oBtn = this.getView().byId("wordNavBackBtn");
+          //           oBtn.setVisible(false);
+          //  	}
+           
 		},
 		
 		_routePatternMatched: function(oEvent) {
