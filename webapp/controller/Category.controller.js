@@ -27,7 +27,7 @@ sap.ui.define([
 			var sId = oEvent.getParameter("arguments").categoryId;
 		
 			//var num = parseInt(sId, 10) - 1 ;
-			var categoryContext =  oWordList.getModel().getContext('/categories/' +  sId  + "/name");
+			var categoryContext =  oWordList.getModel('sign').getContext('/categories/' +  sId  + "/name");
 			var categoryName = categoryContext.getObject();
 			this.getView().byId("page").setTitle(categoryName);
 			var oFilter = new sap.ui.model.Filter("categoryId", sap.ui.model.FilterOperator.EQ, sId);
@@ -47,7 +47,7 @@ sap.ui.define([
 				oList = this.getView().byId("wordList");
 			var aListItems = oList.getItems();
 			aListItems.some(function(oItem) {
-				if (oItem.getBindingContext().sPath === "/Words('" + that._sWordId + "')") {
+				if (oItem.getBindingContext("sign").sPath === "/Words('" + that._sWordId + "')") {
 					oList.setSelectedItem(oItem);
 					return true;
 				}
@@ -66,8 +66,8 @@ sap.ui.define([
 		},
 
         handleWordListSelect : function(oEvent){
-    	  	var oBindContext = oEvent.getSource().getBindingContext();
-			var oModel = oBindContext.getModel();
+    	  	var oBindContext = oEvent.getSource().getBindingContext("sign");
+			var oModel = oBindContext.getModel("sign");
 			var sCategoryId = oModel.getProperty(oBindContext.getPath()).categoryId;
 			var sWordId = oModel.getProperty(oBindContext.getPath()).id;
 			this.getRouter().navTo("word", {categoryId: sCategoryId, wordId: sWordId});  

@@ -4,7 +4,7 @@ sap.ui.define([
 	"sap/ui/Device",
 	"sap/m/routing/Router",
 	"sign/model/models"
-], function(UIComponent,JSONModel, Device, Router, models) {
+], function(UIComponent, JSONModel, Device, Router, models) {
 	"use strict";
 
 	return UIComponent.extend("sign.Component", {
@@ -24,7 +24,7 @@ sap.ui.define([
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
-			
+
 			this._router = this.getRouter();
 
 			//navigate to initial page for !phone
@@ -35,20 +35,31 @@ sap.ui.define([
 			// initialize the router
 			this._router.initialize();
 		},
-		
-		createContent: function () {
+
+		createContent: function() {
 			// create root view
 			var view = sap.ui.view({
 				viewName: "sign.view.Main",
 				type: "XML"
 			});
-			
-			
+
+			// set device model
+			var oDeviceModel = new JSONModel({
+				isTouch: sap.ui.Device.support.touch,
+				isNoTouch: !sap.ui.Device.support.touch,
+				isPhone: sap.ui.Device.system.phone,
+				isNoPhone: !sap.ui.Device.system.phone,
+				listMode: (sap.ui.Device.system.phone) ? "None" : "SingleSelectMaster",
+				listItemType: (sap.ui.Device.system.phone) ? "Active" : "Inactive"
+			});
+			oDeviceModel.setDefaultBindingMode("OneWay");
+			view.setModel(oDeviceModel, "device");
+
 			var oModel = new JSONModel();
 			oModel.loadData("model/database.json");
-        	view.setModel(oModel);
-        	
-        	return view;
+			view.setModel(oModel, "sign");
+			
+			return view;
 		}
 	});
 

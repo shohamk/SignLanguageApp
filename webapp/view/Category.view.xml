@@ -31,17 +31,17 @@
 				select="handleWordListSelect"
 				noDataText="{i18n>NO_DATA}"
 				items="{
-					path : '/words',
+					path : 'sign>/words',
 					sorter : {
-						path : 'name',
+						path : 'sign>name',
 						descending : false
 					}
 				}">
 				<items>
 					<ObjectListItem
-						type="{device>/listItemType}"
-						icon="{image}"
-						title="{name}"
+						type="Active"
+						icon="{sign>image}"
+						title="{sign>name}"
 						press="handleProductListItemPress"
 						iconDensityAware="false" >
 					</ObjectListItem>
@@ -55,17 +55,17 @@
 				noDataText="{i18n>NO_DATA}"
 				busyIndicatorDelay="0"
 				items="{
-					path : '/words',
+					path : 'sign>/words',
 					sorter : {
-						path : 'name',
+						path : 'sign>name',
 						descending : false
 					}
 				}">
 				<items>
 					<ObjectListItem
 						type="Active"
-						icon="{image}"
-						title="{name}"
+						icon="{sign>image}"
+						title="{sign>name}"
 						press="handleWordListSelect"
 						iconDensityAware="false" >
 					</ObjectListItem>

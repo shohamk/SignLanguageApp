@@ -26,17 +26,17 @@
 				select="handleWordListSelect"
 				noDataText="{i18n>NO_DATA}"
 				items="{
-					path : '/words',
+					path : 'sign>/words',
 					sorter : {
-						path : 'name',
+						path : 'sign>name',
 						descending : false
 					}
 				}">
 				<items>
 					<ObjectListItem
-						type="{device>/listItemType}"
-						icon="{image}"
-						title="{name}"
+						type="Active"
+						icon="{sign>image}"
+						title="{sign>name}"
 						press="handleProductListItemPress"
 						iconDensityAware="false" >
 					</ObjectListItem>
@@ -47,23 +47,23 @@
 				id="categoryList"
 				mode="None"
 				items="{
-					path : '/categories',
+					path : 'sign>/categories',
 					sorter : {
-						path : 'name',
+						path : 'sign>name',
 						descending: false
 					}
 				}">
 				<items>
 					<StandardListItem
-						title="{name}"
+						title="{sign>name}"
 						type="Active"
-						icon="{image}"
+						icon="{sign>image}"
 						counter="{NumberOfWords}"
 						press="handleCategoryListItemPress" >
 						<customData>
 							<core:CustomData
 								key="id"
-								value="{Category}" />
+								value="{sign>Category}" />
 						</customData>
 					</StandardListItem>
 				</items>

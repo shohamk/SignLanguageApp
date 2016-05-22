@@ -14,8 +14,8 @@ sap.ui.define([
     	},
 
 		handleCategoryListItemPress : function (oEvent) {
-			var oBindContext = oEvent.getSource().getBindingContext();
-			var oModel = oBindContext.getModel();
+			var oBindContext = oEvent.getSource().getBindingContext("sign");
+			var oModel = oBindContext.getModel("sign");
 			var sCategoryId = oModel.getProperty(oBindContext.getPath()).id;
 			this.getRouter().navTo("category", {categoryId: sCategoryId},true);
 		}
