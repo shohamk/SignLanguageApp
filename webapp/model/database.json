@@ -147,7 +147,7 @@
 
 
     { "id": 126, "name": "בבקשה", "categoryId": 3, "image": "img/please3.png","video": "video/please.mp4" },
-    { "id": 127, "name": "בוקר טוב", "categoryId": 3, "image": "img/good_morning.png","video": "video/good-mornning.mp4" },
+    { "id": 127, "name": "בוקר טוב", "categoryId": 3, "image": "img/good_morning.png","video": "video/good-morning.mp4" },
     { "id": 128, "name": "ביי ביי/להתראות", "categoryId": 3, "image": "img/bye_good_bye_2.png","video": "video/bye-bye.mp4" },
     { "id": 129, "name": "בתיאבון", "categoryId": 3, "image": "img/you_can_eat_it.png","video": "Winner.mp4" },
     { "id": 130, "name": "חג שמח", "categoryId": 3, "image": "img/happy_holidays_jewish.png","video": "video/happy-holiday.mp4" },

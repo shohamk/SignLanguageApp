@@ -7,6 +7,7 @@ sap.ui.define([
 	return BaseController.extend("sign.controller.Word", {
 
 		onInit: function() {
+			debugger;
     		this.getRouter().getRoute("word").attachPatternMatched(this._routePatternMatched, this);
     		
     		var oView = this.getView().byId("wordPage");
@@ -39,7 +40,7 @@ sap.ui.define([
     		 * with the mockserver, which can be enabled via URL-parameter "responerOn=true"
     		 */
     		var that = this;
-    		var oModel = oView.getModel();
+    		var oModel = oView.getModel("sign");
     		var oData = oModel.getData(sPath);
     		oView.bindElement(sPath);
     		var video = $("#html1");
@@ -47,11 +48,11 @@ sap.ui.define([
     		
     	//	oView.setTitle(oData.words[sId].name);
     	//	oView.setIcon( oData.words[sId].image);
-    		var iconView = this.getView().byId("headerImage");
-        	iconView.setSrc(oData.words[sId].image);
+    		// var iconView = this.getView().byId("headerImage");
+      //  	iconView.setSrc(oData.words[sId].image);
         	
-        	var titleView = this.getView().byId("headerTitle");
-        	titleView.setText(oData.words[sId].name);
+      //  	var titleView = this.getView().byId("headerTitle");
+      //  	titleView.setText(oData.words[sId].name);
         	
     	//	var iconView = $("#headerImage");
     	//    iconView.attr("src", oData.words[sId].image);

@@ -66,10 +66,11 @@ sap.ui.define([
 		},
 
         handleWordListSelect : function(oEvent){
-    	  	var oBindContext = oEvent.getSource().getBindingContext("sign");
-			var oModel = oBindContext.getModel("sign");
-			var sCategoryId = oModel.getProperty(oBindContext.getPath()).categoryId;
-			var sWordId = oModel.getProperty(oBindContext.getPath()).id;
+    	  	// var oBindContext = oEvent.getSource().getBindingContext("sign");
+			//var oModel = oBindContext.getModel("sign");
+			var oModel = oEvent.mParameters.listItem.oBindingContexts.sign.getModel("sign");
+			var sCategoryId = oModel.getProperty(oEvent.mParameters.listItem.oBindingContexts.sign.sPath).categoryId;
+			var sWordId = oModel.getProperty(oEvent.mParameters.listItem.oBindingContexts.sign.sPath).id;
 			this.getRouter().navTo("word", {categoryId: sCategoryId, wordId: sWordId});  
     	}
 		/**
