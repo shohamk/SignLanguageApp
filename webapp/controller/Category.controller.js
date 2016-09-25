@@ -15,19 +15,19 @@ sap.ui.define([
 			this._search("wordsList", "searchedWordsList");
 		},
 
-        handleSearch: function(){
-            	this._search("wordsList", "searchedWordsList");
-        },
-        
+		handleSearch: function() {
+			this._search("wordsList", "searchedWordsList");
+		},
+
 		_loadCategory: function(oEvent) {
 			var oWordList = this.getView().byId("wordsList");
 			this._changeNoDataTextToIndicateLoading(oWordList);
 			var oBinding = oWordList.getBinding("items");
-	//		oBinding.attachDataReceived(this.fnDataReceived, this);
+			//		oBinding.attachDataReceived(this.fnDataReceived, this);
 			var sId = oEvent.getParameter("arguments").categoryId;
-		
+
 			//var num = parseInt(sId, 10) - 1 ;
-			var categoryContext =  oWordList.getModel('sign').getContext('/categories/' +  sId  + "/name");
+			var categoryContext = oWordList.getModel('sign').getContext('/categories/' + sId + "/name");
 			var categoryName = categoryContext.getObject();
 			this.getView().byId("page").setTitle(categoryName);
 			var oFilter = new sap.ui.model.Filter("categoryId", sap.ui.model.FilterOperator.EQ, sId);
@@ -55,32 +55,45 @@ sap.ui.define([
 		},
 
 		handleNavButtonPress: function(oEvent) {
-// 			var oHistory, sPreviousHash;
-// 			oHistory = History.getInstance();
-// 			sPreviousHash = oHistory.getPreviousHash();
-// 			if (sPreviousHash !== undefined) {
-// 				window.history.go(-1);
-// 			} else {
-				this.getRouter().navTo("master", {}, true /*no history*/ );
+			// 			var oHistory, sPreviousHash;
+			// 			oHistory = History.getInstance();
+			// 			sPreviousHash = oHistory.getPreviousHash();
+			// 			if (sPreviousHash !== undefined) {
+			// 				window.history.go(-1);
+			// 			} else {
+			this.getRouter().navTo("master", {}, true /*no history*/ );
 			//}
 		},
 
-        handleWordListSelect : function(oEvent){
-    	  	// var oBindContext = oEvent.getSource().getBindingContext("sign");
-			//var oModel = oBindContext.getModel("sign");
-			var oModel = oEvent.mParameters.listItem.oBindingContexts.sign.getModel("sign");
+		handleWordListSelect: function(oEvent) {
+			var oBindContext = oEvent.getParameters().listItem.getBindingContext("sign");
+			var oModel = oBindContext.getModel("sign");
 			var sCategoryId = oModel.getProperty(oEvent.mParameters.listItem.oBindingContexts.sign.sPath).categoryId;
 			var sWordId = oModel.getProperty(oEvent.mParameters.listItem.oBindingContexts.sign.sPath).id;
-			this.getRouter().navTo("word", {categoryId: sCategoryId, wordId: sWordId});  
-    	}
-		/**
-		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
-		 * (NOT before the first rendering! onInit() is used for that one!).
-		 * @memberOf sign.view.Category
-		 */
-	//	onBeforeRendering: function() {
-	//		
-	//	}
+			this.getRouter().navTo("word", {
+				categoryId: sCategoryId,
+				wordId: sWordId
+			});
+		},
+
+		handleWordListPress: function(oEvent) {
+				var oBindContext = oEvent.getSource().getBindingContext("sign");
+				var oModel = oBindContext.getModel("sign");
+				var sCategoryId = oModel.getProperty(oBindContext.getPath()).categoryId;
+				var sWordId = oModel.getProperty(oBindContext.getPath()).id;
+				this.getRouter().navTo("word", {
+					categoryId: sCategoryId,
+					wordId: sWordId
+				});
+			}
+			/**
+			 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
+			 * (NOT before the first rendering! onInit() is used for that one!).
+			 * @memberOf sign.view.Category
+			 */
+			//	onBeforeRendering: function() {
+			//		
+			//	}
 
 		/**
 		 * Called when the View has been rendered (so its HTML is part of the document). Post-rendering manipulations of the HTML could be done here.

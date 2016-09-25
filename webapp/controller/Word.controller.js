@@ -7,7 +7,6 @@ sap.ui.define([
 	return BaseController.extend("sign.controller.Word", {
 
 		onInit: function() {
-			debugger;
     		this.getRouter().getRoute("word").attachPatternMatched(this._routePatternMatched, this);
     		
     		var oView = this.getView().byId("wordPage");

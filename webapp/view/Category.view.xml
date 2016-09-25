@@ -28,7 +28,7 @@
 			<List
 				id="searchedWordsList"
 				mode="{device>/listMode}"
-				select="handleWordListSelect"
+				selectionChange="handleWordListSelect"
 				noDataText="{i18n>NO_DATA}"
 				items="{
 					path : 'sign>/words',
@@ -42,7 +42,7 @@
 						type="Active"
 						icon="{sign>image}"
 						title="{sign>name}"
-						press="handleProductListItemPress"
+						press="handleWordListPress"
 						iconDensityAware="false" >
 					</ObjectListItem>
 				</items>
@@ -51,7 +51,7 @@
 			<List
 				id="wordsList"
 				mode="{device>/listMode}"
-				select="handleWordListSelect"
+				selectionChange = "handleWordListSelect"
 				noDataText="{i18n>NO_DATA}"
 				busyIndicatorDelay="0"
 				items="{
@@ -66,7 +66,7 @@
 						type="Active"
 						icon="{sign>image}"
 						title="{sign>name}"
-						press="handleWordListSelect"
+						press="handleWordListPress"
 						iconDensityAware="false" >
 					</ObjectListItem>
 				</items>
