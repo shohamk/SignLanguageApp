@@ -63,29 +63,7 @@ sap.ui.define([
 			// 			} else {
 			this.getRouter().navTo("master", {}, true /*no history*/ );
 			//}
-		},
-
-		handleWordListSelect: function(oEvent) {
-			var oBindContext = oEvent.getParameters().listItem.getBindingContext("sign");
-			var oModel = oBindContext.getModel("sign");
-			var sCategoryId = oModel.getProperty(oEvent.mParameters.listItem.oBindingContexts.sign.sPath).categoryId;
-			var sWordId = oModel.getProperty(oEvent.mParameters.listItem.oBindingContexts.sign.sPath).id;
-			this.getRouter().navTo("word", {
-				categoryId: sCategoryId,
-				wordId: sWordId
-			});
-		},
-
-		handleWordListPress: function(oEvent) {
-				var oBindContext = oEvent.getSource().getBindingContext("sign");
-				var oModel = oBindContext.getModel("sign");
-				var sCategoryId = oModel.getProperty(oBindContext.getPath()).categoryId;
-				var sWordId = oModel.getProperty(oBindContext.getPath()).id;
-				this.getRouter().navTo("word", {
-					categoryId: sCategoryId,
-					wordId: sWordId
-				});
-			}
+		}
 			/**
 			 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 			 * (NOT before the first rendering! onInit() is used for that one!).

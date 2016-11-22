@@ -37,7 +37,7 @@
 						type="Active"
 						icon="{sign>image}"
 						title="{sign>name}"
-						press="handleProductListItemPress"
+						press="handleWordListPress"
 						iconDensityAware="false" >
 					</ObjectListItem>
 				</items>
