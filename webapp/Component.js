@@ -39,7 +39,7 @@ sap.ui.define([
 		createContent: function() {
 			// create root view
 			var view = sap.ui.view({
-				viewName: "sign.view.Main",
+				viewName: "sign.view.SplitApp",
 				type: "XML"
 			});
 

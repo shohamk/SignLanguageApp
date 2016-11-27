@@ -37,7 +37,7 @@
 	"sap.ui5": {
 		"_version": "1.2.0",
 		"rootView": {
-			"viewName": "sign.view.Main",
+			"viewName": "sign.view.SplitApp",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -73,7 +73,7 @@
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"viewPath": "sign.view",
-				"controlId": "idAppControl",
+				"controlId": "SplitAppId",
 				"controlAggregation": "detailPages",				
 				"bypassed": {
 					"target": ["master"]
@@ -83,12 +83,12 @@
 			"routes": [{
 				"pattern": "",
 				"name": "master",
-				"target": ["category", "master"],
+				"target": ["master"],
 				"greedy": false
 			}, {
 				"pattern": "categories/{categoryId}",
 				"name": "category",
-				"target": ["master", "category"]
+				"target": ["category"]
 			},
 				{
 				"pattern": "category/{categoryId}/word/{wordId}",

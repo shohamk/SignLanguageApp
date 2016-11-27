@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(Controller) {
 	"use strict";
 
-	return Controller.extend("sign.controller.Main", {
+	return Controller.extend("sign.controller.SplitApp", {
 
 	});
 

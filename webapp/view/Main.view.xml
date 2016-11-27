@@ -1,3 +1,0 @@
-<mvc:View controllerName="sign.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" displayBlock="true">
-	<SplitApp id="idAppControl"/>
-</mvc:View>
