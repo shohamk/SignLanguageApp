@@ -29,7 +29,7 @@ sap.ui.define([
 
 			//navigate to initial page for !phone
 			if (!sap.ui.Device.system.phone) {
-				this._router.getTargets().display("master");
+				this._router.getTargets().display("welcome");
 			}
 
 			// initialize the router
@@ -39,7 +39,7 @@ sap.ui.define([
 		createContent: function() {
 			// create root view
 			var view = sap.ui.view({
-				viewName: "sign.view.SplitApp",
+				viewName: "sign.view.FullScreenApp",
 				type: "XML"
 			});
 
@@ -58,7 +58,7 @@ sap.ui.define([
 			var oModel = new JSONModel();
 			oModel.loadData("model/database.json");
 			view.setModel(oModel, "sign");
-			
+
 			return view;
 		}
 	});

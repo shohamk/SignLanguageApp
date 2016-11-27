@@ -1,0 +1,16 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sign.controller.Welcome"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<Page id="welcome">
+			<content>
+				<TileContainer id="container">
+					<tiles>
+						<StandardTile icon="img/logo.jpg"></StandardTile>
+						<StandardTile icon="img/playArrow.jpg" press="onPressPlay"></StandardTile>
+					</tiles>
+				</TileContainer>
+				<Image src="img/logo.jpg"></Image>
+			</content>
+		</Page>
+	</App>
+</mvc:View>

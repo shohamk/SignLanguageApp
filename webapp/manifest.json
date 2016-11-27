@@ -37,7 +37,7 @@
 	"sap.ui5": {
 		"_version": "1.2.0",
 		"rootView": {
-			"viewName": "sign.view.SplitApp",
+			"viewName": "sign.view.FullScreenApp",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -74,14 +74,18 @@
 				"viewType": "XML",
 				"viewPath": "sign.view",
 				"controlId": "SplitAppId",
-				"controlAggregation": "detailPages",				
+				"controlAggregation": "detailPages",
 				"bypassed": {
 					"target": ["master"]
 				}
 			},
-
 			"routes": [{
 				"pattern": "",
+				"name": "welcome",
+				"target": ["welcome"],
+				"greedy": false
+			}, {
+				"pattern": "master",
 				"name": "master",
 				"target": ["master"],
 				"greedy": false
@@ -89,15 +93,21 @@
 				"pattern": "categories/{categoryId}",
 				"name": "category",
 				"target": ["category"]
-			},
-				{
+			}, {
 				"pattern": "category/{categoryId}/word/{wordId}",
 				"name": "word",
 				"target": ["word"]
-				}
-			],
-
+			}],
 			"targets": {
+				"welcome": {
+					"viewType": "XML",
+					"viewLevel": 1,
+					"viewName": "Welcome",
+					"controlAggregation": "pages",
+					"controlId": "fullScreenAppId",
+					"viewId": "welcome",
+					"viewPath": "sign.view"
+				},
 				"master": {
 					"viewType": "XML",
 					"viewLevel": 1,
