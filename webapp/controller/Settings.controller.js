@@ -1,20 +1,36 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller",
-	"sap/ui/model/json/JSONModel"
-], function(Controller, JSONModel) {
+	"sign/controller/BaseController",
+	"sap/ui/model/json/JSONModel",
+		"sap/ui/core/routing/History"
+], function(BaseController, JSONModel, History) {
 	"use strict";
 
-	return Controller.extend("sign.controller.Settings", {
+		return BaseController.extend("sign.controller.Settings", {
 
-		onChange: function(oEvent){
+		onChange: function(oEvent) {
 			var view = this.getView();
 			var oModel = view.getModel();
-			var item = 	oEvent.getParameters().selectedItem;
+			var item = oEvent.getParameters().selectedItem;
 			var key = item.getKey();
-			if(key === "grid"){
-				oModel.setData({enabled: true}, true); 
-			}else{
-			oModel.setData({enabled: false}, true); 
+			if (key === "grid") {
+				oModel.setData({
+					enabled: true
+				}, true);
+			} else {
+				oModel.setData({
+					enabled: false
+				}, true);
+			}
+		},
+
+		handleNavButtonPress: function(oEvent) {
+			var oHistory, sPreviousHash;
+			oHistory = History.getInstance();
+			sPreviousHash = oHistory.getPreviousHash();
+			if (sPreviousHash !== undefined) {
+				window.history.go(-1);
+			} else {
+				this.getRouter().navTo("home", {}, true /*no history*/ );
 			}
 		},
 
@@ -23,19 +39,42 @@ sap.ui.define([
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 		 * @memberOf sign.view.Settings
 		 */
-			onInit: function() {
-				var view = this.getView();
-				var oModel = new JSONModel({
-					layout: [
-							{key:"grid", value:"טבלה"},//TBD get from i18n
-							{key:"scroll",value:"גלילה"}
-							],
-					categoriesNum: [{key: "1"}, {key: "2"}, {key:"3"}, {key:"4"}, {key:"5"}, {key:"6"}, {key:"7"}, {key:"8"}, {key:"9"}],
-					enabled: true
-				});
-				view.setModel(oModel); //TBD:Set name to the model
-		
-			}
+		onInit: function() {
+			var view = this.getView();
+			var oModel = new JSONModel({
+				layout: [{
+						key: "grid",
+						value: "טבלה"
+					}, //TBD get from i18n
+					{
+						key: "scroll",
+						value: "גלילה"
+					}
+				],
+				categoriesNum: [{
+					key: "1"
+				}, {
+					key: "2"
+				}, {
+					key: "3"
+				}, {
+					key: "4"
+				}, {
+					key: "5"
+				}, {
+					key: "6"
+				}, {
+					key: "7"
+				}, {
+					key: "8"
+				}, {
+					key: "9"
+				}],
+				enabled: true
+			});
+			view.setModel(oModel); //TBD:Set name to the model
+
+		}
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
