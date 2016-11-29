@@ -84,17 +84,17 @@
 				"name": "welcome",
 				"target": ["welcome"],
 				"greedy": false
-			},{ 
+			}, {
 				"pattern": "settings",
 				"name": "settings",
 				"target": ["settings"],
 				"greedy": false
-			},{
+			}, {
 				"pattern": "master",
 				"name": "master",
 				"target": ["master"],
 				"greedy": false
-			},{
+			}, {
 				"pattern": "splitapp",
 				"name": "splitapp",
 				"target": ["splitapp"],
