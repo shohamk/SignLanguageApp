@@ -1,0 +1,30 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sign.controller.Settings"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="{i18n>settingsTitle}">
+		<content>
+			<List>
+				<items>
+					<InputListItem label="{i18n>layout}">
+						<Select>
+							<core:Item key="grid" text="{i18n>grid}"/>
+							<core:Item key="scroll" text="{i18n>scroll}"/>
+						</Select>
+					</InputListItem>
+					<InputListItem label="{i18n>categoryPerPage}">
+						<Select>
+							<core:Item key="1" text="1"/>
+							<core:Item key="2" text="2"/>
+							<core:Item key="3" text="3"/>
+							<core:Item key="4" text="4"/>
+							<core:Item key="5" text="5"/>
+							<core:Item key="6" text="6"/>
+							<core:Item key="7" text="7"/>
+							<core:Item key="8" text="8"/>
+							<core:Item key="9" text="9"/>
+						</Select>
+					</InputListItem>
+				</items>
+			</List>
+		</content>
+	</Page>
+</mvc:View>

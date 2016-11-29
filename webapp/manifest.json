@@ -84,7 +84,12 @@
 				"name": "welcome",
 				"target": ["welcome"],
 				"greedy": false
-			}, {
+			},{ 
+				"pattern": "settings",
+				"name": "settings",
+				"target": ["settings"],
+				"greedy": false
+			},{
 				"pattern": "master",
 				"name": "master",
 				"target": ["master"],
@@ -111,6 +116,15 @@
 					"controlAggregation": "pages",
 					"controlId": "fullScreenAppId",
 					"viewId": "welcome",
+					"viewPath": "sign.view"
+				},
+				"settings": {
+					"viewType": "XML",
+					"viewLevel": 1,
+					"viewName": "Settings",
+					"controlAggregation": "pages",
+					"controlId": "fullScreenAppId",
+					"viewId": "settings",
 					"viewPath": "sign.view"
 				},
 				"splitapp": {
