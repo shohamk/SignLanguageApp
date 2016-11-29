@@ -39,10 +39,16 @@ sap.ui.define([
 		//	onExit: function() {
 		//
 		//	}
+
+		onPressPlay: function() {
+			
+			this.getRouter().navTo("splitapp");
+		},
 		
-		onPressPlay : function(){
+			onPressSettings  : function() {
+			
 			this.getRouter().navTo("master");
-		}            
+		}
 
 	});
 

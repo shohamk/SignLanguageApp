@@ -89,6 +89,11 @@
 				"name": "master",
 				"target": ["master"],
 				"greedy": false
+			},{
+				"pattern": "splitapp",
+				"name": "splitapp",
+				"target": ["splitapp"],
+				"greedy": false
 			}, {
 				"pattern": "categories/{categoryId}",
 				"name": "category",
@@ -106,6 +111,14 @@
 					"controlAggregation": "pages",
 					"controlId": "fullScreenAppId",
 					"viewId": "welcome",
+					"viewPath": "sign.view"
+				},
+				"splitapp": {
+					"viewType": "XML",
+					"viewLevel": 1,
+					"viewName": "SplitApp",
+					"controlId": "shell",
+					"viewId": "splitapp",
 					"viewPath": "sign.view"
 				},
 				"master": {

@@ -7,6 +7,7 @@
 					<tiles>
 						<StandardTile icon="img/logo.jpg"></StandardTile>
 						<StandardTile icon="img/playArrow.jpg" press="onPressPlay"></StandardTile>
+						<StandardTile icon="img/setting.png" press="onPressSettings"></StandardTile>
 					</tiles>
 				</TileContainer>
 				<Image src="img/logo.jpg"></Image>
