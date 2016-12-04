@@ -1,16 +1,18 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sign.controller.Welcome"
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" controllerName="sign.controller.Welcome"
 	xmlns:html="http://www.w3.org/1999/xhtml">
 	<App>
-		<Page id="welcome">
+		<Page id="welcome" title="{i18n>title}">
+			<subHeader>
+					<Toolbar>
+						<Button icon="img/setting.png" press="onPressSettings"></Button>
+					</Toolbar>
+				</subHeader>
 			<content>
-				<TileContainer id="container">
-					<tiles>
-						<StandardTile icon="img/logo.jpg"></StandardTile>
-						<StandardTile icon="img/playArrow.jpg" press="onPressPlay"></StandardTile>
-						<StandardTile icon="img/setting.png" press="onPressSettings"></StandardTile>
-					</tiles>
-				</TileContainer>
-				<Image src="img/logo.jpg"></Image>
+				<l:VerticalLayout>
+						<Image src="img/logo.png"></Image>
+						<Button icon="img/playArrow.jpg" press="onPressPlay"></Button>
+					
+				</l:VerticalLayout>
 			</content>
 		</Page>
 	</App>
