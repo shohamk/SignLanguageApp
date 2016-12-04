@@ -90,6 +90,11 @@
 				"target": ["settings"],
 				"greedy": false
 			}, {
+				"pattern": "mastergrid",
+				"name": "mastergrid",
+				"target": ["mastergrid"],
+				"greedy": false
+			},{
 				"pattern": "master",
 				"name": "master",
 				"target": ["master"],
@@ -125,6 +130,15 @@
 					"controlAggregation": "pages",
 					"controlId": "fullScreenAppId",
 					"viewId": "settings",
+					"viewPath": "sign.view"
+				},
+				"mastergrid": {
+					"viewType": "XML",
+					"viewLevel": 1,
+					"viewName": "MasterGrid",
+					"controlAggregation": "pages",
+					"controlId": "fullScreenAppId",
+					"viewId": "masterGrid",
 					"viewPath": "sign.view"
 				},
 				"splitapp": {
