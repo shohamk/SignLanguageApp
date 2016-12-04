@@ -1,10 +1,24 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sign.controller.MasterGrid"
-	xmlns:html="http://www.w3.org/1999/xhtml">
-	<App>
-		<pages>
-			<Page title="Title">
-				<content></content>
-			</Page>
-		</pages>
-	</App>
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout">
+	<Page title="{i18n>firstPageTitle}">
+		<l:HorizontalLayout width="100%" height="100%">
+			<l:content>
+				<l:VerticalLayout >
+					<Button icon="img/rightArrow.png"></Button>
+				</l:VerticalLayout>
+				<l:Grid defaultSpan="L4 M6 S6" class="sapUiSmallMarginTop">
+					<l:content>
+						<ObjectListItem title="Name" icon="img/animals.png"></ObjectListItem>
+						<ObjectListItem title="Name" icon="img/animals.png"></ObjectListItem>
+						<ObjectListItem title="Name" icon="img/animals.png"></ObjectListItem>
+						<ObjectListItem title="Name" icon="img/animals.png"></ObjectListItem>
+						<ObjectListItem title="Name" icon="img/animals.png"></ObjectListItem>
+					</l:content>
+				</l:Grid>
+				<l:VerticalLayout>
+					<Button icon="img/leftArrow.jpg"></Button>
+				</l:VerticalLayout>
+			</l:content>
+		</l:HorizontalLayout>
+	</Page>
 </mvc:View>
