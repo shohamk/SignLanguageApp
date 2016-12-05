@@ -3,21 +3,11 @@
 	<Page title="{i18n>firstPageTitle}">
 		<l:HorizontalLayout width="100%" height="100%">
 			<l:content>
-				<l:VerticalLayout >
-					<Button icon="img/rightArrow.png"></Button>
-				</l:VerticalLayout>
-				<l:Grid defaultSpan="L4 M6 S6" class="sapUiSmallMarginTop">
-					<l:content>
-						<ObjectListItem title="Name" icon="img/animals.png"></ObjectListItem>
-						<ObjectListItem title="Name" icon="img/animals.png"></ObjectListItem>
-						<ObjectListItem title="Name" icon="img/animals.png"></ObjectListItem>
-						<ObjectListItem title="Name" icon="img/animals.png"></ObjectListItem>
-						<ObjectListItem title="Name" icon="img/animals.png"></ObjectListItem>
-					</l:content>
+				<!--Button icon="img/rightArrow.png" class="button_right"></Button-->
+				<l:Grid class="sapUiSmallMarginTop grid_center" content="{sign>/categories}">
+					<ObjectListItem title="{sign>name}" icon="{sign>image}"></ObjectListItem>
 				</l:Grid>
-				<l:VerticalLayout>
-					<Button icon="img/leftArrow.jpg"></Button>
-				</l:VerticalLayout>
+				<!--Button icon="img/leftArrow.jpg" class="button_left"></Button-->
 			</l:content>
 		</l:HorizontalLayout>
 	</Page>
