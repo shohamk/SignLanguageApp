@@ -116,6 +116,10 @@
 				"pattern": "category/{categoryId}/word/{wordId}",
 				"name": "word",
 				"target": ["word"]
+			}, {
+				"pattern": "grid/category/{categoryId}/word/{wordId}",
+				"name": "wordgrid",
+				"target": ["wordgrid"]
 			}],
 			"targets": {
 				"welcome": {
@@ -183,6 +187,15 @@
 					"viewLevel": 3,
 					"viewName": "Word",
 					"controlAggregation": "detailPages",
+					"viewId": "word",
+					"viewPath": "sign.view"
+				},
+				"wordgrid": {
+					"viewType": "XML",
+					"viewLevel": 3,
+					"viewName": "Word",
+					"controlAggregation": "pages",
+					"controlId": "fullScreenAppId",
 					"viewId": "word",
 					"viewPath": "sign.view"
 				}

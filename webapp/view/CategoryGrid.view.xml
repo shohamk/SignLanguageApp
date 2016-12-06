@@ -5,7 +5,7 @@
 			<l:content>
 				<!--Button icon="img/rightArrow.png" class="button_right"></Button-->
 				<l:Grid id="wordsGrid" class="sapUiSmallMarginTop grid_center" content="{sign>/words}">
-					<ObjectListItem title="{sign>name}" icon="{sign>image}"></ObjectListItem>
+					<ObjectListItem title="{sign>name}" icon="{sign>image}" type="Active" press="handleWordGridPress"></ObjectListItem>
 				</l:Grid>
 				<!--Button icon="img/leftArrow.jpg" class="button_left"></Button-->
 			</l:content>

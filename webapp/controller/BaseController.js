@@ -120,6 +120,17 @@ sap.ui.define([
 				categoryId: sCategoryId,
 				wordId: sWordId
 			});
+		},
+
+		handleWordGridPress: function(oEvent) {
+			var oBindContext = oEvent.getSource().getBindingContext("sign");
+			var oModel = oBindContext.getModel("sign");
+			var sCategoryId = oModel.getProperty(oBindContext.getPath()).categoryId;
+			var sWordId = oModel.getProperty(oBindContext.getPath()).id;
+			this.getRouter().navTo("wordgrid", {
+				categoryId: sCategoryId,
+				wordId: sWordId
+			});
 		}
 
 	});
