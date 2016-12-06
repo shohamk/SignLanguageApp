@@ -94,7 +94,11 @@
 				"name": "mastergrid",
 				"target": ["mastergrid"],
 				"greedy": false
-			},{
+			}, {
+				"pattern": "grid/categories/{categoryId}",
+				"name": "categorygrid",
+				"target": ["categorygrid"]
+			}, {
 				"pattern": "master",
 				"name": "master",
 				"target": ["master"],
@@ -139,6 +143,15 @@
 					"controlAggregation": "pages",
 					"controlId": "fullScreenAppId",
 					"viewId": "masterGrid",
+					"viewPath": "sign.view"
+				},
+				"categorygrid": {
+					"viewType": "XML",
+					"viewLevel": 1,
+					"viewName": "CategoryGrid",
+					"controlAggregation": "pages",
+					"controlId": "fullScreenAppId",
+					"viewId": "categorygrid",
 					"viewPath": "sign.view"
 				},
 				"splitapp": {

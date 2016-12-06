@@ -1,10 +1,17 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function(Controller) {
+	"sign/controller/BaseController"
+], function(BaseController) {
 	"use strict";
 
-	return Controller.extend("sign.controller.MasterGrid", {
+	return BaseController.extend("sign.controller.MasterGrid", {
 
+		handleMasterGridItemPress : function (oEvent) {
+			var oBindContext = oEvent.getSource().getBindingContext("sign");
+			var oModel = oBindContext.getModel("sign");
+			var sCategoryId = oModel.getProperty(oBindContext.getPath()).id;
+			this.getRouter().navTo("categorygrid", {categoryId: sCategoryId},true);
+		}
+		
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.

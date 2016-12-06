@@ -5,7 +5,7 @@
 			<l:content>
 				<!--Button icon="img/rightArrow.png" class="button_right"></Button-->
 				<l:Grid class="sapUiSmallMarginTop grid_center" content="{sign>/categories}">
-					<ObjectListItem title="{sign>name}" icon="{sign>image}"></ObjectListItem>
+					<ObjectListItem title="{sign>name}" icon="{sign>image}" type="Active" press="handleMasterGridItemPress"></ObjectListItem>
 				</l:Grid>
 				<!--Button icon="img/leftArrow.jpg" class="button_left"></Button-->
 			</l:content>
