@@ -193,10 +193,10 @@
 				"wordgrid": {
 					"viewType": "XML",
 					"viewLevel": 3,
-					"viewName": "Word",
+					"viewName": "WordGrid",
 					"controlAggregation": "pages",
 					"controlId": "fullScreenAppId",
-					"viewId": "word",
+					"viewId": "wordgrid",
 					"viewPath": "sign.view"
 				}
 			}

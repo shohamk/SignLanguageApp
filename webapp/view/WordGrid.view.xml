@@ -1,0 +1,11 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sign.controller.WordGrid"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+		<Page id="wordGridPage" showNavButton="true" navButtonPress="handleNavButtonPress">
+		<headerContent>
+		</headerContent>
+		<footer>
+			<Toolbar></Toolbar>
+		</footer>
+		<content></content>
+	</Page>
+</mvc:View>
