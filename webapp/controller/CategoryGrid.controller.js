@@ -27,7 +27,12 @@ sap.ui.define([
 			this.getView().byId("wordsGridPage").setTitle(categoryName);
 			var oFilter = new sap.ui.model.Filter("categoryId", sap.ui.model.FilterOperator.EQ, sId);
 			oBinding.filter([oFilter]);
+		},
+		
+		handleNavButtonPress : function(){
+			this.getRouter().navTo("mastergrid", {}, true);
 		}
+		
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
