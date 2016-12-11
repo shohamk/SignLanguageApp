@@ -1,18 +1,14 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" controllerName="sign.controller.Welcome"
-	xmlns:html="http://www.w3.org/1999/xhtml">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	controllerName="sign.controller.Welcome" xmlns:html="http://www.w3.org/1999/xhtml">
 	<App>
-		<Page id="welcome" title="{i18n>title}">
+		<Page id="welcome" title="{i18n>title}" class="myBackgroundStyle">
 			<subHeader>
-					<Toolbar>
-						<Button icon="img/setting.png" press="onPressSettings"></Button>
-					</Toolbar>
-				</subHeader>
-			<content>
-				<l:VerticalLayout>
-						<Image src="img/logo.png"></Image>
-						<Button icon="img/playArrow.jpg" press="onPressPlay"></Button>
-					
-				</l:VerticalLayout>
+				<Toolbar>
+					<Button icon="img/setting.png" press="onPressSettings"></Button>
+				</Toolbar>
+			</subHeader>
+			<content class="container">
+				<Button text="התחל" icon="img/playArrow.jpg" press="onPressPlay" class="playButton" ></Button>
 			</content>
 		</Page>
 	</App>
