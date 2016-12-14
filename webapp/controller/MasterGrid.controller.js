@@ -5,21 +5,45 @@ sap.ui.define([
 
 	return BaseController.extend("sign.controller.MasterGrid", {
 
-		handleMasterGridItemPress : function (oEvent) {
-			var oBindContext = oEvent.getSource().getBindingContext("sign");
-			var oModel = oBindContext.getModel("sign");
-			var sCategoryId = oModel.getProperty(oBindContext.getPath()).id;
-			this.getRouter().navTo("categorygrid", {categoryId: sCategoryId},true);
+			handleMasterGridItemPress: function(oEvent) {
+				var oBindContext = oEvent.getSource().getBindingContext("sign");
+				var oModel = oBindContext.getModel("sign");
+				var sCategoryId = oModel.getProperty(oBindContext.getPath()).id;
+				this.getRouter().navTo("categorygrid", {
+					categoryId: sCategoryId
+				}, true);
+			},
+
+			/**
+			 * Called when a controller is instantiated and its View controls (if available) are already created.
+			 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
+			 * @memberOf sign.view.view.MasterGrid
+			 */
+			onInit: function() {
+				this.getRouter().getRoute("mastergrid").attachPatternMatched(this._loadCategory, this);
+
+			},
+
+			_loadCategory: function(oEvent) {
+					var oMasterGridCont = this.getView().byId("masterGridCont");
+					var oBinding = oMasterGridCont.getBinding("content");
+					var aCategory = oBinding.oList.sort(function(a, b) {
+						if (a.name < b.name) return -1;
+						if (a.name > b.name) return 1;
+						return 0;
+					});
+				var iNumOfCat = 4;
+				var iScreenNum = 0;
+				var iFrom = iNumOfCat*iScreenNum;
+				var iTo = iFrom + iNumOfCat - 1;
+				var aDispalyCat = [];
+				//var sDispalyCat = (aCategory[0].id).toString();
+				for(var i=iFrom ; i<=iTo; i++){
+					aDispalyCat.push(new sap.ui.model.Filter("id", sap.ui.model.FilterOperator.EQ,aCategory[i].id));
+				}
+				oBinding.filter(aDispalyCat);
+				
 		}
-		
-		/**
-		 * Called when a controller is instantiated and its View controls (if available) are already created.
-		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
-		 * @memberOf sign.view.view.MasterGrid
-		 */
-		//	onInit: function() {
-		//
-		//	},
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
