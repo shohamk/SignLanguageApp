@@ -37,7 +37,7 @@
 	"sap.ui5": {
 		"_version": "1.2.0",
 		"rootView": {
-			"viewName": "sign.view.FullScreenApp",
+			"viewName": "sign.gridcomponent.view.FullScreenApp",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -72,9 +72,9 @@
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"viewPath": "sign.view",
-				"controlId": "SplitAppId",
-				"controlAggregation": "detailPages",
+				"viewPath": "sign.gridcomponent.view",
+				"controlId": "fullScreenAppId",
+				"controlAggregation": "pages",
 				"bypassed": {
 					"target": ["master"]
 				}
@@ -99,24 +99,6 @@
 				"name": "categorygrid",
 				"target": ["categorygrid"]
 			}, {
-				"pattern": "master",
-				"name": "master",
-				"target": ["master"],
-				"greedy": false
-			}, {
-				"pattern": "splitapp",
-				"name": "splitapp",
-				"target": ["splitapp"],
-				"greedy": false
-			}, {
-				"pattern": "categories/{categoryId}",
-				"name": "category",
-				"target": ["category"]
-			}, {
-				"pattern": "category/{categoryId}/word/{wordId}",
-				"name": "word",
-				"target": ["word"]
-			}, {
 				"pattern": "grid/category/{categoryId}/word/{wordId}",
 				"name": "wordgrid",
 				"target": ["wordgrid"]
@@ -129,7 +111,7 @@
 					"controlAggregation": "pages",
 					"controlId": "fullScreenAppId",
 					"viewId": "welcome",
-					"viewPath": "sign.view"
+					"viewPath": "sign.gridcomponent.view"
 				},
 				"settings": {
 					"viewType": "XML",
@@ -138,7 +120,7 @@
 					"controlAggregation": "pages",
 					"controlId": "fullScreenAppId",
 					"viewId": "settings",
-					"viewPath": "sign.view"
+					"viewPath": "sign.gridcomponent.view"
 				},
 				"mastergrid": {
 					"viewType": "XML",
@@ -147,7 +129,7 @@
 					"controlAggregation": "pages",
 					"controlId": "fullScreenAppId",
 					"viewId": "masterGrid",
-					"viewPath": "sign.view"
+					"viewPath": "sign.gridcomponent.view"
 				},
 				"categorygrid": {
 					"viewType": "XML",
@@ -156,39 +138,7 @@
 					"controlAggregation": "pages",
 					"controlId": "fullScreenAppId",
 					"viewId": "categorygrid",
-					"viewPath": "sign.view"
-				},
-				"splitapp": {
-					"viewType": "XML",
-					"viewLevel": 1,
-					"viewName": "SplitApp",
-					"controlId": "shell",
-					"viewId": "splitapp",
-					"viewPath": "sign.view"
-				},
-				"master": {
-					"viewType": "XML",
-					"viewLevel": 1,
-					"viewName": "Master",
-					"controlAggregation": "masterPages",
-					"viewId": "master",
-					"viewPath": "sign.view"
-				},
-				"category": {
-					"viewType": "XML",
-					"viewLevel": 2,
-					"viewName": "Category",
-					"controlAggregation": "masterPages",
-					"viewId": "category",
-					"viewPath": "sign.view"
-				},
-				"word": {
-					"viewType": "XML",
-					"viewLevel": 3,
-					"viewName": "Word",
-					"controlAggregation": "detailPages",
-					"viewId": "word",
-					"viewPath": "sign.view"
+					"viewPath": "sign.gridcomponent.view"
 				},
 				"wordgrid": {
 					"viewType": "XML",
@@ -197,7 +147,7 @@
 					"controlAggregation": "pages",
 					"controlId": "fullScreenAppId",
 					"viewId": "wordgrid",
-					"viewPath": "sign.view"
+					"viewPath": "sign.gridcomponent.view"
 				}
 			}
 		}

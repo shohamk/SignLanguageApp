@@ -4,7 +4,7 @@ sap.ui.define([
 ], function(BaseController, History) {
 	"use strict";
 
-	return BaseController.extend("sign.controller.Category", {
+	return BaseController.extend("sign.listcomponent.controller.Category", {
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.

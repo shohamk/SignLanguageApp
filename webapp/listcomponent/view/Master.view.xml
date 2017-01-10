@@ -1,4 +1,4 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sign.controller.Master"
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sign.listcomponent.controller.Master"
 	xmlns:html="http://www.w3.org/1999/xhtml">
 	
 			<Page id="firstPage" title="{i18n>firstPageTitle}">

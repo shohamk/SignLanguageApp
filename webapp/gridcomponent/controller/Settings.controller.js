@@ -5,7 +5,7 @@ sap.ui.define([
 ], function(BaseController, JSONModel, History) {
 	"use strict";
 
-		return BaseController.extend("sign.controller.Settings", {
+		return BaseController.extend("sign.gridcomponent.controller.Settings", {
 
 		onChange: function(oEvent) {
 			var view = this.getView();

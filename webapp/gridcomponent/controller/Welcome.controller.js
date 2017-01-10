@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(BaseController) {
 	"use strict";
 
-	return BaseController.extend("sign.controller.Welcome", {
+	return BaseController.extend("sign.gridcomponent.controller.Welcome", {
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
@@ -41,8 +41,12 @@ sap.ui.define([
 		//	}
 
 		onPressPlay: function() {
-
+			// var oComp = sap.ui.getCore().createComponent("sign.listcomponent");
+			// var oContainer = sap.ui.getCore().byId("shell");
+			// oContainer.setComponent(oComp);
 			this.getRouter().navTo("mastergrid");
+			// 
+			
 		},
 
 		onPressSettings: function() {

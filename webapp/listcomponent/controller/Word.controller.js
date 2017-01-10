@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(BaseWordController) {
 	"use strict";
 
-	return BaseWordController.extend("sign.controller.Word", {
+	return BaseWordController.extend("sign.listcomponent.controller.Word", {
 
 		onInit: function() {
 			this.getRouter().getRoute("word").attachPatternMatched(this._routePatternMatched, this);

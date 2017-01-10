@@ -37,7 +37,7 @@
 	"sap.ui5": {
 		"_version": "1.2.0",
 		"rootView": {
-			"viewName": "sign.view.Main",
+			"viewName": "sign.view.SplitApp",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -72,7 +72,7 @@
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"viewPath": "sign.view",
+				"viewPath": "sign.listcomponent.view",
 				"controlId": "SplitAppId",
 				"controlAggregation": "detailPages",				
 				"bypassed": {
@@ -104,7 +104,7 @@
 					"viewName": "Master",
 					"controlAggregation": "masterPages",
 					"viewId": "master",
-					"viewPath": "sign.view"
+					"viewPath": "sign.listcomponent.view"
 				},
 				"category": {
 					"viewType": "XML",
@@ -112,7 +112,7 @@
 					"viewName": "Category",
 					"controlAggregation": "masterPages",
 					"viewId": "category",
-					"viewPath": "sign.view"
+					"viewPath": "sign.listcomponent.view"
 				},
 				"word": {
 					"viewType": "XML",
@@ -120,7 +120,7 @@
 					"viewName": "Word",
 					"controlAggregation": "detailPages",
 					"viewId": "word",
-					"viewPath": "sign.view"
+					"viewPath": "sign.listcomponent.view"
 				}
 			}
 		}

@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(BaseWordController) {
 	"use strict";
 
-	return BaseWordController.extend("sign.controller.WordGrid", {
+	return BaseWordController.extend("sign.gridcomponent.controller.WordGrid", {
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.

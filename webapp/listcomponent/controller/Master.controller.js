@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(BaseController) {
 	"use strict";
 
-	return BaseController.extend("sign.controller.Master", {
+	return BaseController.extend("sign.listcomponent.controller.Master", {
 
 		onInit : function () {
 				this._search("categoryList", "wordsList");

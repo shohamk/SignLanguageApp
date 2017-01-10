@@ -15,7 +15,10 @@
 			data-sap-ui-rtl="true"
 			data-sap-ui-compatVersion="edge"
 			data-sap-ui-resourceroots='{"sign": "./",
-										"view": "./view",
+										"gridcomponent": "./gridcomponent",
+										"gridcomponent.view": "/gridcomponent/view",
+										"listcomponent": "./listcomponent",
+										"listcomponent.view": "/listcomponent/view",
 										"model": "./model"}'>
 		</script>
 
@@ -26,7 +29,7 @@
 				new sap.m.Shell({
 					app: new sap.ui.core.ComponentContainer({
 						height : "100%",
-						name : "sign",
+						name : "sign.gridcomponent",
 						id: "shell"
 					})
 				}).placeAt("content");

@@ -7,7 +7,7 @@ sap.ui.define([
 ], function(UIComponent, JSONModel, Device, Router, models) {
 	"use strict";
 
-	return UIComponent.extend("sign.Component", {
+	return UIComponent.extend("sign.gridcomponent.Component", {
 
 		metadata: {
 			manifest: "json"
@@ -39,7 +39,7 @@ sap.ui.define([
 		createContent: function() {
 			// create root view
 			var view = sap.ui.view({
-				viewName: "sign.view.FullScreenApp",
+				viewName: "sign.gridcomponent.view.FullScreenApp",
 				type: "XML"
 			});
 

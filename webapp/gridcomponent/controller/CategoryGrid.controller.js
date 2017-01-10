@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(BaseController) {
 	"use strict";
 
-	return BaseController.extend("sign.controller.CategoryGrid", {
+	return BaseController.extend("sign.gridcomponent.controller.CategoryGrid", {
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
