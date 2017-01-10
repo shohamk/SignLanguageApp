@@ -80,16 +80,6 @@
 				}
 			},
 			"routes": [{
-				"pattern": "",
-				"name": "welcome",
-				"target": ["welcome"],
-				"greedy": false
-			}, {
-				"pattern": "settings",
-				"name": "settings",
-				"target": ["settings"],
-				"greedy": false
-			}, {
 				"pattern": "mastergrid",
 				"name": "mastergrid",
 				"target": ["mastergrid"],
@@ -104,24 +94,6 @@
 				"target": ["wordgrid"]
 			}],
 			"targets": {
-				"welcome": {
-					"viewType": "XML",
-					"viewLevel": 1,
-					"viewName": "Welcome",
-					"controlAggregation": "pages",
-					"controlId": "fullScreenAppId",
-					"viewId": "welcome",
-					"viewPath": "sign.gridcomponent.view"
-				},
-				"settings": {
-					"viewType": "XML",
-					"viewLevel": 1,
-					"viewName": "Settings",
-					"controlAggregation": "pages",
-					"controlId": "fullScreenAppId",
-					"viewId": "settings",
-					"viewPath": "sign.gridcomponent.view"
-				},
 				"mastergrid": {
 					"viewType": "XML",
 					"viewLevel": 1,

@@ -1,74 +1,36 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sign.listcomponent.controller.Master"
 	xmlns:html="http://www.w3.org/1999/xhtml">
-	
-			<Page id="firstPage" title="{i18n>firstPageTitle}">
-				<subHeader>
-					<Toolbar id="searchBar">
-						<SearchField
-							id="searchField"
-							showRefreshButton="{device>/isNoTouch}"
-							placeholder="{i18n>SEARCH}"
-							search="handleSearch"
-							tooltip="Search words"
-							width="100%">
-						</SearchField>
-					</Toolbar>
-				</subHeader>
-				<footer>
-					<Toolbar>
-					</Toolbar>
-				</footer>
-				<content>
+	<Page id="firstPage" title="{i18n>firstPageTitle}">
+		<headerContent>
+			<Button icon="sap-icon://table-view" press="handleTableViewButtonPress"></Button>
+		</headerContent>
+		<subHeader>
+			<Toolbar id="searchBar">
+				<SearchField id="searchField" showRefreshButton="{device>/isNoTouch}" placeholder="{i18n>SEARCH}" search="handleSearch"
+					tooltip="Search words" width="100%"></SearchField>
+			</Toolbar>
+		</subHeader>
+		<footer>
+			<Toolbar></Toolbar>
+		</footer>
+		<content>
 			<!-- This list shows the search results -->
-			<List
-				id="wordsList"
-				mode="{device>/listMode}"
-				select="handleWordListSelect"
-				noDataText="{i18n>NO_DATA}"
-				items="{
-					path : 'sign>/words',
-					sorter : {
-						path : 'sign>name',
-						descending : false
-					}
-				}">
+			<List id="wordsList" mode="{device>/listMode}" select="handleWordListSelect" noDataText="{i18n>NO_DATA}"
+				items="{ path : 'sign>/words', sorter : { path : 'sign>name', descending : false } }">
 				<items>
-					<ObjectListItem
-						type="Active"
-						icon="{sign>image}"
-						title="{sign>name}"
-						press="handleWordListPress"
-						iconDensityAware="false" >
-					</ObjectListItem>
+					<ObjectListItem type="Active" icon="{sign>image}" title="{sign>name}" press="handleWordListPress" iconDensityAware="false"></ObjectListItem>
 				</items>
 			</List>
 			<!-- This list shows the product categories -->
-			<List
-				id="categoryList"
-				mode="None"
-				items="{
-					path : 'sign>/categories',
-					sorter : {
-						path : 'sign>name',
-						descending: false
-					}
-				}">
+			<List id="categoryList" mode="None" items="{ path : 'sign>/categories', sorter : { path : 'sign>name', descending: false } }">
 				<items>
-					<StandardListItem
-						title="{sign>name}"
-						type="Active"
-						icon="{sign>image}"
-						counter="{NumberOfWords}"
-						press="handleCategoryListItemPress" >
+					<StandardListItem title="{sign>name}" type="Active" icon="{sign>image}" counter="{NumberOfWords}" press="handleCategoryListItemPress">
 						<customData>
-							<core:CustomData
-								key="id"
-								value="{sign>Category}" />
+							<core:CustomData key="id" value="{sign>Category}"/>
 						</customData>
 					</StandardListItem>
 				</items>
 			</List>
 		</content>
-			</Page>
-	
+	</Page>
 </mvc:View>

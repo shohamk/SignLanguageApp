@@ -10,6 +10,15 @@ sap.ui.define([
 			var oModel = oBindContext.getModel("sign");
 			var sCategoryId = oModel.getProperty(oBindContext.getPath()).id;
 			this.getRouter().navTo("categorygrid", {categoryId: sCategoryId},true);
+		},
+		
+		handleListViewButtonPress: function(){
+			var oComp = sap.ui.getCore().getComponent("sign.listcomponent");
+			if(oComp === undefined){
+				oComp = sap.ui.getCore().createComponent("sign.listcomponent");
+			}
+			var oContainer = sap.ui.getCore().byId("shell");
+			oContainer.setComponent(oComp);	
 		}
 		
 		/**
