@@ -76,11 +76,11 @@
 				"controlId": "fullScreenAppId",
 				"controlAggregation": "pages",
 				"bypassed": {
-					"target": ["master"]
+					"target": ["mastergrid"]
 				}
 			},
 			"routes": [{
-				"pattern": "mastergrid",
+				"pattern": "",
 				"name": "mastergrid",
 				"target": ["mastergrid"],
 				"greedy": false
