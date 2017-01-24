@@ -8,7 +8,7 @@ sap.ui.define([
 
 		setContent: function(viewId) {
 			var oView = this.getView().byId(viewId);
-			var html1 = new sap.ui.core.HTML("html1", {
+			var html1 = new sap.ui.core.HTML( {
 				content: "<video width='100%' height='100%' autoplay controls>" +
 					"<source src='c.mp4' type='video/mp4'>" +
 					"Your browser does not support the video tag." +
@@ -17,7 +17,8 @@ sap.ui.define([
 
 			oView.addContent(html1);
 		},
-
+		
+		
 		assignRoutePattern: function(sId, viewId) {
 			var that = this;
 			var oView = this.getView().byId(viewId);
@@ -25,7 +26,7 @@ sap.ui.define([
 			var oModel = oView.getModel("sign");
 			var oData = oModel.getData(sPath);
 			oView.bindElement(sPath);
-			var video = $("#html1");
+			var video = $("video");
 			video.attr("src", oData.words[sId].video);
 
 			//if there is no data the model has to request new data
