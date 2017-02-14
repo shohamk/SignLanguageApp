@@ -58,6 +58,7 @@ sap.ui.define([
 			var oModel = new JSONModel();
 			oModel.loadData("model/database.json");
 			view.setModel(oModel, "sign");
+			sap.ui.getCore().setModel(oModel, "sign");
 
 			return view;
 		}

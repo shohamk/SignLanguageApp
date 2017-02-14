@@ -29,49 +29,51 @@ sap.ui.define([
 		 * @memberOf sign.view.view.MasterGrid
 		 */
 		onInit: function() {
-			this.getRouter().getRoute("mastergrid").attachPatternMatched(this._loadCategory, this);
-			//this._loadCategory();
-
+			var oModel = sap.ui.getCore().getModel("sign");
+			oModel.attachRequestCompleted(this._loadCategory, this);
 		},
 
 		_loadCategory: function(oEvent) {
-			// var oMasterGridCont = this.getView().byId("masterGridCont");
-			// var oBinding = oMasterGridCont.getBinding("content");
-			// var aCategory = oBinding.oList.sort(function(a, b) {
-			// 	if (a.name < b.name) return -1;
-			// 	if (a.name > b.name) return 1;
-			// 	return 0;
-			// });
-			// var iNumOfCat = 4;
-			// var iScreenNum = 0;
-			// var iFrom = iNumOfCat * iScreenNum;
-			// var iTo = iFrom + iNumOfCat - 1;
-			// var aDispalyCat = [];
-			// //var sDispalyCat = (aCategory[0].id).toString();
-			// for (var i = iFrom; i <= iTo; i++) {
-			// 	aDispalyCat.push(new sap.ui.model.Filter("id", sap.ui.model.FilterOperator.EQ, aCategory[i].id));
-			// }
-			// oBinding.filter(aDispalyCat);
+			
+			var oMasterGridCont = this.getView().byId("masterGridCont");
+			var oBinding = oMasterGridCont.getBinding("content");
+			var aCategory = oBinding.oList.sort(function(a, b) {
+				if (a.name < b.name) return -1;
+				if (a.name > b.name) return 1;
+				return 0;
+			});
+			var iNumOfCat = 4;
+			var iScreenNum = 0;
+			var iFrom = iNumOfCat * iScreenNum;
+			var iTo = iFrom + iNumOfCat - 1;
+			var aDispalyCat = [];
+			
+			if (aCategory.length > 0) {
+				for (var i = iFrom; i <= iTo; i++) {
+					aDispalyCat.push(new sap.ui.model.Filter("id", sap.ui.model.FilterOperator.EQ, aCategory[i].id));
+				}
+				oBinding.filter(aDispalyCat);
+			}
 
-		}
-
+		},
+		
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 		 * (NOT before the first rendering! onInit() is used for that one!).
 		 * @memberOf sign.view.view.MasterGrid
 		 */
-		// onBeforeRendering: function() {
-			
-		// },
+		onBeforeRendering: function() {
+
+		},
 
 		/**
 		 * Called when the View has been rendered (so its HTML is part of the document). Post-rendering manipulations of the HTML could be done here.
 		 * This hook is the same one that SAPUI5 controls get after being rendered.
 		 * @memberOf sign.view.view.MasterGrid
 		 */
-		// onAfterRendering: function() {
+		onAfterRendering: function() {
 
-		// },
+		}
 
 		/**
 		 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
