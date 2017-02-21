@@ -37,7 +37,8 @@ sap.ui.define([
 			
 			var oMasterGridCont = this.getView().byId("masterGridCont");
 			var oBinding = oMasterGridCont.getBinding("content");
-			var aCategory = oBinding.oList.sort(function(a, b) {
+			var aCategory = oBinding.oList.slice();
+			aCategory.sort(function(a, b) {
 				if (a.name < b.name) return -1;
 				if (a.name > b.name) return 1;
 				return 0;
