@@ -5,7 +5,8 @@ sap.ui.define([
 
 	return BaseController.extend("sign.gridcomponent.controller.MasterGrid", {
 
-		_iPageNumber: 0,
+		_iCurrPageNumber: 0,
+		_iPagesNumber: -1,
 
 		handleMasterGridItemPress: function(oEvent) {
 			var oBindContext = oEvent.getSource().getBindingContext("sign");
@@ -40,13 +41,24 @@ sap.ui.define([
 			var oMasterGridCont = this.getView().byId("masterGridCont");
 			var oBinding = oMasterGridCont.getBinding("content");
 			var aCategory = oBinding.oList.slice();
+			var iNumOfCat = 4;
+			//Calculate the number of pages only once
+			if(_iPagesNumber == -1){
+				var modulu = aCategory.length%iNumOfCat;
+				if(modulu >0){
+					iPagesNumber = aCategory.length/iNumOfCat +1;
+				}
+				else{
+					iPagesNumber = aCategory.length/iNumOfCat
+				}	
+			}
 			aCategory.sort(function(a, b) {
 				if (a.name < b.name) return -1;
 				if (a.name > b.name) return 1;
 				return 0;
 			});
-			var iNumOfCat = 4;
-			var iFrom = iNumOfCat * this._iPageNumber;
+		
+			var iFrom = iNumOfCat * this._iCurrPageNumber;
 			var iTo = iFrom + iNumOfCat - 1;
 			if (iTo > aCategory.length -1){
 				iTo = aCategory.length -1;
@@ -81,13 +93,16 @@ sap.ui.define([
 		},
 
 		leftArrowPressed: function(oEvent) {
-			this._iPageNumber++;
+			this._iCurrPageNumber++;
 			this._loadCategory(oEvent);
+			if(	this._iCurrPageNumber == this._iPagesNumber){
+				
+			}
 			
 		},
 		
 		rightArrowPressed: function(oEvent) {
-			this._iPageNumber--;
+			this._iCurrPageNumber--;
 			this._loadCategory(oEvent);
 			
 		}
