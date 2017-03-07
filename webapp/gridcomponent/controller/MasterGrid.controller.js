@@ -5,6 +5,8 @@ sap.ui.define([
 
 	return BaseController.extend("sign.gridcomponent.controller.MasterGrid", {
 
+		_iPageNumber: 0,
+
 		handleMasterGridItemPress: function(oEvent) {
 			var oBindContext = oEvent.getSource().getBindingContext("sign");
 			var oModel = oBindContext.getModel("sign");
@@ -34,7 +36,7 @@ sap.ui.define([
 		},
 
 		_loadCategory: function(oEvent) {
-			
+
 			var oMasterGridCont = this.getView().byId("masterGridCont");
 			var oBinding = oMasterGridCont.getBinding("content");
 			var aCategory = oBinding.oList.slice();
@@ -44,11 +46,13 @@ sap.ui.define([
 				return 0;
 			});
 			var iNumOfCat = 4;
-			var iScreenNum = 0;
-			var iFrom = iNumOfCat * iScreenNum;
+			var iFrom = iNumOfCat * this._iPageNumber;
 			var iTo = iFrom + iNumOfCat - 1;
+			if (iTo > aCategory.length -1){
+				iTo = aCategory.length -1;
+			}
 			var aDispalyCat = [];
-			
+
 			if (aCategory.length > 0) {
 				for (var i = iFrom; i <= iTo; i++) {
 					aDispalyCat.push(new sap.ui.model.Filter("id", sap.ui.model.FilterOperator.EQ, aCategory[i].id));
@@ -57,7 +61,7 @@ sap.ui.define([
 			}
 
 		},
-		
+
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 		 * (NOT before the first rendering! onInit() is used for that one!).
@@ -74,6 +78,18 @@ sap.ui.define([
 		 */
 		onAfterRendering: function() {
 
+		},
+
+		leftArrowPressed: function(oEvent) {
+			this._iPageNumber++;
+			this._loadCategory(oEvent);
+			
+		},
+		
+		rightArrowPressed: function(oEvent) {
+			this._iPageNumber--;
+			this._loadCategory(oEvent);
+			
 		}
 
 		/**
