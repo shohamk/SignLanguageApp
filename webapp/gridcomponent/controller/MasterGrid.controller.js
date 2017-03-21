@@ -43,13 +43,13 @@ sap.ui.define([
 			var aCategory = oBinding.oList.slice();
 			var iNumOfCat = 4;
 			//Calculate the number of pages only once
-			if(_iPagesNumber == -1){
+			if(this._iPagesNumber === -1){
 				var modulu = aCategory.length%iNumOfCat;
 				if(modulu >0){
-					iPagesNumber = aCategory.length/iNumOfCat +1;
+					this._iPagesNumber = Math.floor(aCategory.length/iNumOfCat) ;
 				}
 				else{
-					iPagesNumber = aCategory.length/iNumOfCat
+					this._iPagesNumber = aCategory.length/iNumOfCat - 1;
 				}	
 			}
 			aCategory.sort(function(a, b) {
@@ -93,17 +93,30 @@ sap.ui.define([
 		},
 
 		leftArrowPressed: function(oEvent) {
+			if(	this._iCurrPageNumber === 0){
+				var oRightArrow = this.getView().byId("rightArrow");
+       			oRightArrow.setEnabled(true);
+			}
 			this._iCurrPageNumber++;
 			this._loadCategory(oEvent);
-			if(	this._iCurrPageNumber == this._iPagesNumber){
-				
+			if(	this._iCurrPageNumber === this._iPagesNumber){
+				var oLeftArrow = this.getView().byId("leftArrow");
+       			oLeftArrow.setEnabled(false);
 			}
 			
 		},
 		
 		rightArrowPressed: function(oEvent) {
+			if(	this._iCurrPageNumber === this._iPagesNumber){
+				var oLeftArrow = this.getView().byId("leftArrow");
+       			oLeftArrow.setEnabled(true);
+			}
 			this._iCurrPageNumber--;
 			this._loadCategory(oEvent);
+			if(	this._iCurrPageNumber === 0){
+				var oRightArrow = this.getView().byId("rightArrow");
+       			oRightArrow.setEnabled(false);
+			}
 			
 		}
 
