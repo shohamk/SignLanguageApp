@@ -8,6 +8,10 @@ sap.ui.define([
 		_iCurrPageNumber: 0,
 		_iPagesNumber: -1,
 
+		handleSearch : function (oEvent) {
+    		this._gridSearch("masterGridCont", "filteredGridCont");
+    	},
+
 		handleMasterGridItemPress: function(oEvent) {
 			var oBindContext = oEvent.getSource().getBindingContext("sign");
 			var oModel = oBindContext.getModel("sign");
@@ -34,6 +38,7 @@ sap.ui.define([
 		onInit: function() {
 			var oModel = sap.ui.getCore().getModel("sign");
 			oModel.attachRequestCompleted(this._loadCategory, this);
+			this._gridSearch("masterGridCont", "filteredGridCont");
 		},
 
 		_loadCategory: function(oEvent) {
