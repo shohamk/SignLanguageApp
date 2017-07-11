@@ -8,10 +8,13 @@
 		<title>Sign</title>
 
 		<script id="sap-ui-bootstrap" src="../../resources/sap-ui-core.js" data-sap-ui-libs="sap.m" data-sap-ui-theme="sap_bluecrystal" data-sap-ui-bindingsyntax="complex" data-sap-ui-rtl="true" data-sap-ui-compatversion="edge" data-sap-ui-resourceroots="{&quot;sign&quot;: &quot;./&quot;,
-										&quot;view&quot;: &quot;./view&quot;,
+										&quot;gridcomponent&quot;: &quot;./gridcomponent&quot;,
+										&quot;gridcomponent.view&quot;: &quot;/gridcomponent/view&quot;,
+										&quot;listcomponent&quot;: &quot;./listcomponent&quot;,
+										&quot;listcomponent.view&quot;: &quot;/listcomponent/view&quot;,
 										&quot;model&quot;: &quot;./model&quot;}">
 		</script>
-
+		<script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 
 		<script>
@@ -19,26 +22,29 @@
 				new sap.m.Shell({
 					app: new sap.ui.core.ComponentContainer({
 						height : "100%",
-						name : "sign",
+						name : "sign.gridcomponent",
 						id: "shell"
 					})
 				}).placeAt("content");
 			});
 		</script>
-	<script type="text/javascript">window.sap_webide_FacadePreview = true;</script>
-<script src="https://webide-i069322trial.dispatcher.hanatrial.ondemand.com/plugins/pluginrepository/hybrid/cordovafacade/cordova.js" type="text/javascript"></script>
-<script src="https://webide-i069322trial.dispatcher.hanatrial.ondemand.com/plugins/pluginrepository/hybrid/mobileextend/MessageDef.js" type="text/javascript"></script>
-<script src="https://webide-i069322trial.dispatcher.hanatrial.ondemand.com/plugins/pluginrepository/hybrid/mobileextend/MessageBridge.js" type="text/javascript"></script>
-<link href="https://webide-i069322trial.dispatcher.hanatrial.ondemand.com/plugins/pluginrepository/hybrid/css/mobileExtend.css" rel="stylesheet" type="text/css">
+	<script src="https://trackerexta90daed17.hana.ondemand.com/tracker/js/privacy.js" type="text/javascript"></script>
+<style>.facadebtn{display:inline-block;width:60px;height:60px;background-color:#009de0;border-radius:50px;text-align:center;box-shadow: 2px 2px 3px #999;opacity:.3;}
+.facadebtn .sapUiIcon{color:#FFF;font-size:1.5rem;cursor:pointer;line-height:60px;width:60px;}
+.facadebtn:hover{opacity:1;}
+#interactive.viewport video{width:320px;height:240px;}
+.facade .sapMSLITitleOnly, .facade .sapMILILabel {font-size: 1rem;}
+#interactive.viewport .drawingBuffer{width:320px;height:240px;position:absolute;}
+</style>
 <script type="text/javascript">
 window.swa = {
-	"baseUrl": "https://cloud.warp.sap.com/tracker/",
+	"baseUrl": "https://trackerexta90daed17.hana.ondemand.com/tracker/",
 	"clicksEnabled": false,
 	"custom3": {
 		"ref": "SAP"
 	},
 	"custom6": {
-		"ref": "161201"
+		"ref": "170330"
 	},
 	"custom7": {},
 	"custom8": {
@@ -48,7 +54,7 @@ window.swa = {
 	"optOutCookieTimeout": 63113852,
 	"visitorCookieTimeout": 63113852,
 	"logger": false,
-	"loggingUrl": "https://cloud.warp.sap.com/tracker/",
+	"loggingUrl": "https://trackerexta90daed17.hana.ondemand.com/tracker/",
 	"pageLoadEnabled": false,
 	"customEventsEnabled": true,
 	"hotkeysEnabled": false,
@@ -87,19 +93,17 @@ window.swa = {
 	"custom9": {
 		"ref": null
 	}
-}
-var href = window.location.href;
-var search = window.location.search;
-var url = href.replace(search, '');
-window._orgUrl = url.substr(0, url.lastIndexOf('/')) + '/index.html' + search;
+};
+window._facadeSettings = {"cordova-plugin-device-orientation":false,"accelerometer":{},"compass":{}};
+	window.sIdeOrigin = "https://webide-i069322trial.dispatcher.hanatrial.ondemand.com";
+	window.sap_webide_FacadePreview = true;
+	window.sFacadePath = "https://webide-i069322trial.dispatcher.hanatrial.ondemand.com/plugins/pluginrepository/hybrid/cordovafacade/cordova.js";
+	window.sFacadeCfgViewPath = "https://webide-i069322trial.dispatcher.hanatrial.ondemand.com/plugins/pluginrepository/hybrid/view/";
+	window.bridgeHtml = "https://webide-i069322trial.dispatcher.hanatrial.ondemand.com/plugins/pluginrepository/hybrid/cordovafacade/MessageBridge.html";
+	window.msgDefPath = "https://webide-i069322trial.dispatcher.hanatrial.ondemand.com/plugins/pluginrepository/hybrid/mobileextend/MessageDef.js";
+	window.msgBridgePath = "https://webide-i069322trial.dispatcher.hanatrial.ondemand.com/plugins/pluginrepository/hybrid/mobileextend/MessageBridge.js";
+	window.meCssPath = "https://webide-i069322trial.dispatcher.hanatrial.ondemand.com/plugins/pluginrepository/hybrid/css/mobileExtend.css";
 </script>
-<script src="https://cloud.warp.sap.com/tracker/js/privacy.js" type="text/javascript"></script>
-<style>.facadebtn{display:inline-block;width:60px;height:60px;background-color:#009de0;border-radius:50px;text-align:center;box-shadow: 2px 2px 3px #999;opacity:.3;}
-.facadebtn .sapUiIcon{color:#FFF;font-size:1.5rem;cursor:pointer;line-height:60px;width:60px;}
-.facadebtn:hover{opacity:1;}
-#interactive.viewport video{width:320px;height:240px;}
-#interactive.viewport .drawingBuffer{width:320px;height:240px;position:absolute;}
-</style>
 <script src="https://webide-i069322trial.dispatcher.hanatrial.ondemand.com/plugins/pluginrepository/hybrid/cordovafacade/floatingButton.js" type="text/javascript"></script>
 </head>
 
