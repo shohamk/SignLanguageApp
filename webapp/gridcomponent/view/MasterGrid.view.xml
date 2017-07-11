@@ -16,7 +16,7 @@
 				<l:Grid id="masterGridCont" class="sapUiSmallMarginTop grid_center" content="{path :'sign>/categories' , sorter : { path : 'sign>name', descending : false }}">
 					<ObjectListItem title="{sign>name}" icon="{sign>image}" type="Active" press="handleMasterGridItemPress"></ObjectListItem>
 				</l:Grid>
-				<l:Grid id="filteredGridCont" class="sapUiSmallMarginTop grid_center" content="{path :'sign>/categories' , sorter : { path : 'sign>name', descending : false }}">
+				<l:Grid id="filteredGridCont" class="sapUiSmallMarginTop grid_center" content="{path :'sign>/words' , sorter : { path : 'sign>name', descending : false }}">
 					<ObjectListItem title="{sign>name}" icon="{sign>image}" type="Active" press="handleMasterGridItemPress"></ObjectListItem>
 				</l:Grid>
 				<Button id="leftArrow" icon="img/leftArrow.jpg" class="button_left" press="leftArrowPressed"></Button>

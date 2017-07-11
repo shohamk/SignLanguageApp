@@ -31,8 +31,11 @@ sap.ui.define([
 		
 		handleNavButtonPress : function(){
 			this.getRouter().navTo("mastergrid", {}, true);
-		}
+		},
 		
+		handleSearch : function (oEvent) {
+    		this._gridSearch("wordsGrid", "filteredGridCont");
+    	}
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered

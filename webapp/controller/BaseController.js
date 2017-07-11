@@ -112,7 +112,7 @@ sap.ui.define([
 			var oBinding = oFilteredGrid.getBinding("content");
 			if (oBinding) {
 				if (bShowSearch) {
-					var oFilter = new sap.ui.model.Filter("name", sap.ui.model.FilterOperator.StartsWith, oSearchField.getValue());
+					var oFilter = new sap.ui.model.Filter("name", sap.ui.model.FilterOperator.Contains, oSearchField.getValue());
 					oBinding.filter([oFilter]);
 				} else {
 					oBinding.filter([]);
