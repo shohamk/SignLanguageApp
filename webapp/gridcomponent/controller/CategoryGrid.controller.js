@@ -70,7 +70,11 @@ sap.ui.define([
 		},
 
 		
-		handleSearch : function (oEvent) {
+		// handleSearch : function (oEvent) {
+  //  		this._gridSearch("wordsGrid", "filteredGridCont");
+  //  	},
+    	
+		onLiveChange : function (oEvent) {
     		this._gridSearch("wordsGrid", "filteredGridCont");
     	},
 

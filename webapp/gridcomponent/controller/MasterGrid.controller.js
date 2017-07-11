@@ -8,7 +8,11 @@ sap.ui.define([
 		_iCurrPageNumber: 0,
 		_iPagesNumber: -1,
 
-		handleSearch : function (oEvent) {
+		// handleSearch : function (oEvent) {
+  //  		this._gridSearch("masterGridCont", "filteredGridCont");
+  //  	},
+    	
+    	onLiveChange : function (oEvent) {
     		this._gridSearch("masterGridCont", "filteredGridCont");
     	},
 

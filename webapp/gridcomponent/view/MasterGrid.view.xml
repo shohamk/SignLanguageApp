@@ -6,7 +6,7 @@
 		</headerContent>
 		<subHeader>
 			<Toolbar id="searchBar">
-				<SearchField id="gridSearchField" showRefreshButton="{device>/isNoTouch}" placeholder="{i18n>SEARCH}" search="handleSearch"
+				<SearchField id="gridSearchField" showRefreshButton="{device>/isNoTouch}" placeholder="{i18n>SEARCH}" liveChange="onLiveChange"
 					tooltip="Search words" width="100%"></SearchField>
 			</Toolbar>
 		</subHeader>

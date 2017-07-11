@@ -15,9 +15,13 @@ sap.ui.define([
 			this._search("wordsList", "searchedWordsList");
 		},
 
-		handleSearch: function() {
-			this._search("wordsList", "searchedWordsList");
-		},
+		// handleSearch: function() {
+		// 	this._search("wordsList", "searchedWordsList");
+		// },
+		
+		onLiveChange : function() {
+    		this._search("wordsList", "searchedWordsList");
+    	},
 
 		_loadCategory: function(oEvent) {
 			var oWordList = this.getView().byId("wordsList");

@@ -9,7 +9,11 @@ sap.ui.define([
 				this._search("categoryList", "wordsList");
 		},
 		
-		handleSearch : function (oEvent) {
+		// handleSearch : function (oEvent) {
+  //  		this._search("categoryList", "wordsList");
+  //  	},
+    	
+    	onLiveChange : function(oEvent) {
     		this._search("categoryList", "wordsList");
     	},
 

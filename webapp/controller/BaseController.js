@@ -79,12 +79,19 @@ sap.ui.define([
 			if (bShowSearch) {
 				this._changeNoDataTextToIndicateLoading(oProductList);
 			}
+			
+			if(bShowSearch){
+				oSearchField.setShowSearchButton(false);
+			}
+			else{
+				oSearchField.setShowSearchButton(true);
+			}
 
 			// filter product list
 			var oBinding = oProductList.getBinding("items");
 			if (oBinding) {
 				if (bShowSearch) {
-					var oFilter = new sap.ui.model.Filter("name", sap.ui.model.FilterOperator.Contains, oSearchField.getValue());
+					var oFilter = new sap.ui.model.Filter("name", sap.ui.model.FilterOperator.StartsWith, oSearchField.getValue());
 					oBinding.filter([oFilter]);
 				} else {
 					oBinding.filter([]);
@@ -103,6 +110,13 @@ sap.ui.define([
 
 			oFilteredGrid.setVisible(bShowSearch);
 			oMainGrid.setVisible(!bShowSearch);
+			
+			if(bShowSearch){
+				oSearchField.setShowSearchButton(false);
+			}
+			else{
+				oSearchField.setShowSearchButton(true);
+			}
 
 			// if (bShowSearch) {
 			// 	this._changeNoDataTextToIndicateLoading(oFilteredGrid);
@@ -112,7 +126,7 @@ sap.ui.define([
 			var oBinding = oFilteredGrid.getBinding("content");
 			if (oBinding) {
 				if (bShowSearch) {
-					var oFilter = new sap.ui.model.Filter("name", sap.ui.model.FilterOperator.Contains, oSearchField.getValue());
+					var oFilter = new sap.ui.model.Filter("name", sap.ui.model.FilterOperator.StartsWith, oSearchField.getValue());
 					oBinding.filter([oFilter]);
 				} else {
 					oBinding.filter([]);
