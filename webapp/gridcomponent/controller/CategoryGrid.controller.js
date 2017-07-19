@@ -15,10 +15,13 @@ sap.ui.define([
 		 */
 		onInit: function() {
 			this.getRouter().getRoute("categorygrid").attachPatternMatched(this._loadCategory, this);
+			this._gridSearch("wordsGrid", "filteredWordsGrid");
 		},
 
 		_loadCategory: function(oEvent) {
-			debugger;
+		
+			//var ofilteredWordsGrid = this.getView().byId("filteredWordsGrid");
+		
 			var oWordGrid = this.getView().byId("wordsGrid");
 			//this._changeNoDataTextToIndicateLoading(oWordGrid);
 			var oBinding = oWordGrid.getBinding("content");
@@ -75,7 +78,7 @@ sap.ui.define([
   //  	},
     	
 		onLiveChange : function (oEvent) {
-    		this._gridSearch("wordsGrid", "filteredGridCont");
+    		this._gridSearch("wordsGrid", "filteredWordsGrid");
     	},
 
 
