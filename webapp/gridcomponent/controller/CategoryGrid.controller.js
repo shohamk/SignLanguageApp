@@ -7,6 +7,7 @@ sap.ui.define([
 
 		_iCurrPageNumber: 0,
 		_iPagesNumber: -1,
+		_sId:0,
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
@@ -20,13 +21,19 @@ sap.ui.define([
 
 		_loadCategory: function(oEvent) {
 		
-			//var ofilteredWordsGrid = this.getView().byId("filteredWordsGrid");
-		
 			var oWordGrid = this.getView().byId("wordsGrid");
-			//this._changeNoDataTextToIndicateLoading(oWordGrid);
 			var oBinding = oWordGrid.getBinding("content");
-			//		oBinding.attachDataReceived(this.fnDataReceived, this);
-			var sId = oEvent.getParameter("arguments").categoryId;
+			if (oEvent.getParameter("arguments") === undefined){
+				var sId = this._sId;
+			} else {
+				 sId = oEvent.getParameter("arguments").categoryId;
+			}
+			
+			if (sId !== this._sId){
+				this._iCurrPageNumber = 0;
+				this._iPagesNumber = -1;
+				this._sId = sId;
+			}
 			var categoryContext = oWordGrid.getModel('sign').getContext('/categories/' + sId + "/name");
 			var categoryName = categoryContext.getObject();
 			this.getView().byId("wordsGridPage").setTitle(categoryName);
