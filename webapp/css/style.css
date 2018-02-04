@@ -1,5 +1,8 @@
 /* Enter your custom styles here */
 
+.sapUiGlobalBackgroundImage.sapUiGlobalBackgroundImageForce{
+	display:none;
+}
 
 .myBackgroundStyle {
     background-image: url(../img/logo.png);
