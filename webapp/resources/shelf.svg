@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="942" height="425" viewBox="0 0 942 425">
+    <defs>
+        <linearGradient id="a" x1="50%" x2="50%" y1="0%" y2="68.302%">
+            <stop offset="0%" stop-color="#494949" stop-opacity=".982"/>
+            <stop offset="100%" stop-opacity="0"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <path fill="url(#a)" fill-opacity=".2" d="M950.057 24.749L1009 109l-.18-24.157L950 0zM59.952 24.56l889.952.025L1009 109H118.511z" style="mix-blend-mode:multiply" transform="translate(-60)"/>
+        <path fill="#A38F64" d="M0 24.57h890V0H0z"/>
+        <g>
+            <path fill="url(#a)" fill-opacity=".2" d="M950.057 24.749L1009 109l-.18-24.157L950 0zM59.952 24.56l889.952.025L1009 109H118.511z" style="mix-blend-mode:multiply" transform="translate(-60 172)"/>
+            <path fill="#A38F64" d="M0 196.57h890V172H0z"/>
+        </g>
+        <g>
+            <path fill="url(#a)" fill-opacity=".2" d="M950.057 24.749L1009 109l-.18-24.157L950 0zM59.952 24.56l889.952.025L1009 109H118.511z" style="mix-blend-mode:multiply" transform="translate(-60 343)"/>
+            <path fill="#A38F64" d="M0 367.57h890V343H0z"/>
+        </g>
+    </g>
+</svg>

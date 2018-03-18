@@ -1,27 +1,46 @@
 /* Enter your custom styles here */
 
  /*should be the background of the page*/
-.Header-Background {
-  /*width: 1024px;*/
-  /*height: 156.5px;*/
-  /*background-image: linear-gradient(to bottom, #ae3d2a, #d95841);*/
-  /*box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);*/
+.sapMPageHeader {
+ width: 1024px;
+  height: 156.5px;
+  background-image: linear-gradient(to bottom, #ae3d2a, #d95841) !important;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5) !important;
 }
+
+.Rectangle-8 {
+  width: 183px;
+  height: 26px;
+  border-radius: 13.5px;
+  background-color: #5c7e9d;
+}
+
+.Shelf {
+  width: 1010px;
+  height: 452px;
+  object-fit: contain;
+}
+
+.Grid {
+background-color:black;	
+	
+}
+
 /*should be the background of the page header*/
 .Background {
-  /*width: 1024px;*/
-  /*height: 768px;*/
-  /*background-image: radial-gradient(circle at 49% -14%, #fdfaf4, #c1b7a1);*/
+  width: 1024px;
+  height: 768px;
+  background-image: radial-gradient(circle at 49% -14%, #fdfaf4, #c1b7a1);
   /*background-image: radial-gradient(circle at 49% -14%, #fdfaf4, var(--pinkish-grey));*/
 }
 
-.myBackgroundStyle {
-    background-image: url(../img/logo.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 50%;
-    background-color: white;
-}
+/*.myBackgroundStyle {*/
+/*    background-image: url(../img/logo.png);*/
+/*    background-position: center;*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: 50%;*/
+/*    background-color: white;*/
+/*}*/
 
 .container{
 	text-align: center;
